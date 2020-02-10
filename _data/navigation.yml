@@ -4,3 +4,9 @@ main:
 - title: Datasets
   url: /datasets/
   excerpt: "Find datasets"
+- title: Add Datasets
+  url: /add/
+  excerpt: "Add your datasets"
+- title: About
+  url: /about/
+  excerpt: "About DataHerb"

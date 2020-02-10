@@ -49,7 +49,7 @@ Here we generate all the tags.
   {% for post in site.datasets %}
   {% if post.tags contains tag %}
   <article class="post-item">
-        <p><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>  — <strong><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></strong>
+        <p><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>  — <strong><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.name }}</a></strong>
         <span style="float: right;">
           {% if post.category != null %}
              { {% for category in post.category %}

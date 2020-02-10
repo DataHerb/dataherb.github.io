@@ -265,3 +265,12 @@ div.mermaid {
 ::-webkit-scrollbar {
   height: 1px;  /* height of horizontal scrollbar ← You're missing this */
 }
+
+
+.metadata-list {
+  list-style: none !important;
+}
+
+.metadata-key {
+  font-weight: bold;
+}
