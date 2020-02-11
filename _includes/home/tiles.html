@@ -1,9 +1,20 @@
 <div class="tile is-ancestor">
-  <div class="tile is-vertical is-12">
+  <div class="tile is-vertical is-6">
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-info">
+        <a href="{{ "/datasets/" | relative_url }}" style="text-decoration: none;"><p class="title">All Datasets <a href="{{ "/datasets/" | relative_url }}" class="is-pulled-right"><i class="fas fa-link"></i></a></p></a>
+        <p class="subtitle">List of datasets from the open data community</p>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-vertical is-6">
     <div class="tile is-parent">
       <article class="tile is-child notification is-danger">
-        <p class="title">Find Datasets <a href="{{ "/datasets/" | relative_url }}" class="is-pulled-right"><i class="fas fa-link"></i></a></p>
-        <p class="subtitle">List of datasets</p>
+        <a href="{{ "/add/" | relative_url }}" style="text-decoration: none;"><p class="title">List Your Datasets <a href="{{ "/add/" | relative_url }}" class="is-pulled-right"><i class="fas fa-link"></i></a></p></a>
+        <p class="subtitle">Add your datasets and contribute to the open data community</p>
         <div class="content">
           <!-- Content -->
         </div>

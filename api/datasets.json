@@ -3,13 +3,17 @@
 [
   {% for post in site.datasets %}
     {
-      "type"     : "dataset",
-      "title"    : "{{ post.title | escape }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "category" : "{{ post.category }}",
-      "tags"     : ["{{ post.tags | join: '", "' }}"],
-      "date"     : "{{ post.date }}",
-      "description"  : "{{ post.excerpt | replace: '$', ' ' | replace: '\', ' ' | replace: '_', ' ' | strip_html | strip_newlines | escape }}"
+      "type"         : "dataset",
+      "name"         : "{{ post.name | escape }}",
+      "contributors" : {{ post.contributors | jsonify}},
+      "id"           : "{{ post.dataset_id }}",
+      "url"          : "{{ site.baseurl }}{{ post.url }}",
+      "category"     : "{{ post.category }}",
+      "tags"         : {{ post.tags | jsonify }},
+      "date"         : "{{ post.date }}",
+      "description"  : "{{ post.description | replace: '$', ' ' | replace: '\', ' ' | replace: '_', ' ' | strip_html | strip_newlines | escape }}",
+      "data"         : {{ post.data | jsonify }},
+      "repository"   : "{{ post.repository }}"
     }
   {% unless forloop.last %},{% endunless %}
   {% endfor %}

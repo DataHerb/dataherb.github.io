@@ -42,6 +42,9 @@ layout: default
   </div>
   <div class="message-body">
     <ul class="metadata-list">
+    {% if page.dataset_id %}
+      <li><span class="metadata-key">Dataset ID:</span> {{ page.dataset_id }}</li>
+    {% endif %}
     {% if page.name %}
       <li><span class="metadata-key">Dataset Name:</span> {{ page.name }}</li>
     {% endif %}
@@ -66,7 +69,7 @@ layout: default
     {% if page.data %}
     {% for data in page.data %}
       <ul class="metadata-list" style="margin-bottom: 5em;">
-        <li><span class="metadata-key">File:</span> {{ data.path }}</li>
+        <li><span class="metadata-key">File:</span> <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/dataset/{{ data.path }}">{{ data.path }}</a></li>
         <li><span class="metadata-key">Format:</span> {{ data.format }}</li>
         <li><span class="metadata-key">Size:</span> {{ data.size }}</li>
         <li><span class="metadata-key">Fields:</span>

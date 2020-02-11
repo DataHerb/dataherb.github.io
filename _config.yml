@@ -1,8 +1,8 @@
 title: DataHerb
-author: "Lei Ma"
+author: "DataHerb"
 email: hi@leima.is
 description: > # this means to ignore newlines until "twitter_username:"
-  Small datasets for your data science/analysis project
+  Clean datasets to boost your data science/analysis project
 baseurl: ''
 # social links
 twitter_username: jekyllrb
