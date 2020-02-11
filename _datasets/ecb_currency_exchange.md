@@ -1,4 +1,5 @@
 ---
+dataset_id: ecb_currency_exchange
 contributors:
 - name: Miao
 data:
