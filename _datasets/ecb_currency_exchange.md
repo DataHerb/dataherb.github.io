@@ -1,4 +1,5 @@
 ---
+title: Currency Exchange Rate
 dataset_id: ecb_currency_exchange
 contributors:
 - name: Miao
@@ -17,5 +18,7 @@ references:
 - link: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html
   name: Euro foreign exchange reference rates from European Central Bank
 repository: emptymalei/currency-exchange
+tags:
+- Financial
 
 ---
