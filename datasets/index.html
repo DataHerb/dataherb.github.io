@@ -32,7 +32,6 @@ Here we generate all the tags.
 {% endif %}
 {% endfor %}
 
-
 <div class="posts">
 <div class="box">
 <div class="tags">
@@ -40,6 +39,7 @@ Here we generate all the tags.
 <span class="tag">
 <a href="#{{ tag | slugify }}" class="codinfox-tag-mark"> #{{ tag }} </a></span>
 {% endfor %}
+<a href="#MISC" class="codinfox-tag-mark"> #MISC </a></span>
 </div>
 </div>
 
@@ -70,6 +70,27 @@ Here we generate all the tags.
   {% endfor %}
 </ul>
 {% endfor %}
+
+<h2 id="{{ tag | slugify }}">#MISC</h2>
+<ul class="codinfox-category-list">
+  {% for post in site.datasets %}
+  {% if post.tags contains tag %}
+  {% else %}
+  <article class="post-item">
+        <p><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>  — <strong><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.name }}</a></strong>
+        <span style="float: right;">
+          {% if post.category != null %}
+             { {% for category in post.category %}
+                <a class="keywords-mark" href="{{ site.baseurl }}/til/?keywords={{ category | slugify }}">⸢{{ category }}⸥</a>
+                {% endfor %} }
+          {% endif %}
+        <a class="codinfox-tag-mark" href="{{ site.baseurl }}/til/#{{ tag | slugify }}">#MISC</a>
+        </span>
+      </p>
+  </article>
+  {% endif %}
+  {% endfor %}
+</ul>
 
 </div>
 
