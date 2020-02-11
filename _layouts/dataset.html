@@ -69,7 +69,7 @@ layout: default
     {% if page.data %}
     {% for data in page.data %}
       <ul class="metadata-list" style="margin-bottom: 5em;">
-        <li><span class="metadata-key">File:</span> <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/dataset/{{ data.path }}">{{ data.path }}</a></li>
+        <li><span class="metadata-key">File:</span> <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/dataset/{{ data.path }}" download="{{ data.path }}">{{ data.path }}</a></li>
         <li><span class="metadata-key">Format:</span> {{ data.format }}</li>
         <li><span class="metadata-key">Size:</span> {{ data.size }}</li>
         <li><span class="metadata-key">Fields:</span>
@@ -112,3 +112,7 @@ layout: default
   {% include pagination.html %}
 
 </article>
+
+
+
+{% include utterances-comments.html %}
