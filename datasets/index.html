@@ -60,6 +60,8 @@ Here we generate all the tags.
         [{% for tag in post.tag %}
         <a class="codinfox-tag-mark" href="{{ site.baseurl }}/til/#{{ tag | slugify }}">#{{ tag }}</a>
         {% endfor %}]
+        {% else %}
+        <a class="codinfox-tag-mark" href="{{ site.baseurl }}/til/#{{ tag | slugify }}">#MISC</a>
         {% endif %}
         </span>
       </p>
