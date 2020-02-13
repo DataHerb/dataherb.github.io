@@ -33,5 +33,6 @@ DataHerb is an initiative for transparent data management in open data.
 - Pandas Package: load and explore any dataset together with the documentation using one line of python code.
 - Command-line tool: load and explore any dataset together with the documentation in your terminal.
 - Versioned datasets: make use of GitHub tag/release to version datasets and index versioned datasets automatically.
+- Better APIs: [All datasets](/api/datasets.json), ...
 - **Your ideas**
 
