@@ -22,7 +22,7 @@ DataHerb do **not** take your data. The datasets are fully managed by the owners
 
 DataHerb is an initiative for transparent data management in open data.
 
-- Contribute datasets: list your datasets on DataHerb in just two steps. [Tutorial]({{ site.baseurl }}/add)
+- Contribute datasets: list your datasets on DataHerb in just two steps. Datasets that can be used to enhance machine learning datasets are the priorities. [Tutorial]({{ site.baseurl }}/add)
 - Use DataHerb.
 - Spread the words.
 - Help us build a better DataHerb. [GitHub Organization](https://github.com/dataherb); [Leave a comment](#comments)
