@@ -1,7 +1,7 @@
 .main--content {
   padding: 2rem 3rem;
-  overflow: hidden;
-  position: relative;
+  /* overflow: hidden; */
+  /* position: relative; */
 }
 
 .post-header {
@@ -257,14 +257,14 @@ div.mermaid {
   color: white;
 }
 
-.MJXc-display {
+/* .MJXc-display {
   overflow-x: overlay !important;
   overflow-y: hidden !important;
-}
+} */
 
-::-webkit-scrollbar {
-  height: 1px;  /* height of horizontal scrollbar ← You're missing this */
-}
+/* ::-webkit-scrollbar {
+  height: 1px;
+} */
 
 
 .metadata-list {

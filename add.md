@@ -8,6 +8,8 @@ comments: true
 
 Adding your dataset is free and easy. You manage your datasets, DataHerb makes it easy to be accessed.
 
+> Datasets that can be used to enhance machine learning datasets are the priorities at the moment. These datasets can be very helpful to the open data community as well as all data scientists/engineers.
+
 ## List Your Dataset on DataHerb
 
 It only takes **two steps**:
