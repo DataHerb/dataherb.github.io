@@ -17,7 +17,8 @@ data:
   - description: Raw offset, independant of DST
     name: raw_offset
   format: csv
-  path: geonames_timezone.csv
+  name: timezones in csv format
+  path: dataset/geonames_timezone.csv
   size: 14K
   updated_at: '2020-02-12'
 - fields:
@@ -32,7 +33,7 @@ data:
   - description: Raw offset, independant of DST
     name: raw_offset
   format: json
-  path: geonames_timezone.json
+  path: dataset/geonames_timezone.json
   size: 58K
   updated_at: '2020-02-12'
 description: IANA Timezone IDs in different countries from Geonames

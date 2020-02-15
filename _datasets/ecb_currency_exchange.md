@@ -10,7 +10,7 @@ data:
   - description: The rate to convert it to EUR
     name: to_euro_rate
   format: csv
-  path: ezb_currency_exchange.csv
+  path: dataset/ezb_currency_exchange.csv
   size: 452B
 description: Currency exchange rate from central european bank on 2020-02-05.
 name: Currency Exchange Rate
