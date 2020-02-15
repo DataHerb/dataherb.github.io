@@ -68,8 +68,10 @@ layout: default
   <div class="message-body">
     {% if page.data %}
     {% for data in page.data %}
+      <div class="is-divider" data-content="{{ data.format }}"></div>
       <ul class="metadata-list" style="margin-bottom: 5em;">
-        <li><span class="metadata-key">File:</span> <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/dataset/{{ data.path }}" download="{{ data.path }}">{{ data.path }}</a></li>
+        {% if data.name %}<li><span class="metadata-key">Name:</span> {{ data.name }} </li>{% endif %}
+        <li><span class="metadata-key">File:</span> <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}" download="{{ data.path }}">{{ data.path }}</a></li>
         <li><span class="metadata-key">Format:</span> {{ data.format }}</li>
         <li><span class="metadata-key">Size:</span> {{ data.size }}</li>
         <li><span class="metadata-key">Fields:</span>
