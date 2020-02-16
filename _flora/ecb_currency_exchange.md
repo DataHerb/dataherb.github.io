@@ -1,6 +1,6 @@
 ---
 title: Currency Exchange Rate
-herb_id: ecb_currency_exchange
+dataset_id: ecb_currency_exchange
 contributors:
 - name: Miao
 data:
