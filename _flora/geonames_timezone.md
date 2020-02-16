@@ -1,6 +1,6 @@
 ---
 title: Geoname Timezones
-dataset_id: geonames_timezone
+herb_id: geonames_timezone
 contributors:
 - github: datumorphism
   name: Datumorphism

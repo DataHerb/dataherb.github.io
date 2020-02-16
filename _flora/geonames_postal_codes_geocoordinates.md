@@ -1,6 +1,6 @@
 ---
 title: Geonames Postal Codes and Geocoordinates
-dataset_id: geonames_postal_codes_geocoordinates
+herb_id: geonames_postal_codes_geocoordinates
 contributors:
 - github: datumorphism
   name: Datumorphism

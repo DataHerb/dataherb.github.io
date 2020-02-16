@@ -1,6 +1,6 @@
 ---
 title: NASA Exoplanet Archive
-dataset_id: nasa_exoplanet_archive
+herb_id: nasa_exoplanet_archive
 contributors:
 - github: InterImm
   name: Interplanetary Immigration Center
