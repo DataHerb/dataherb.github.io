@@ -1,12 +1,12 @@
 ---
 ---
 [
-  {% for post in site.datasets %}
+  {% for post in site.flora %}
     {
-      "type"         : "dataset",
+      "type"         : "dataherb",
       "name"         : "{{ post.name | escape }}",
       "contributors" : {{ post.contributors | jsonify}},
-      "id"           : "{{ post.dataset_id }}",
+      "id"           : "{{ post.herb_id }}",
       "url"          : "{{ site.baseurl }}{{ post.url }}",
       "category"     : "{{ post.category }}",
       "tags"         : {{ post.tags | jsonify }},

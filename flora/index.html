@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Datasets
-description: Find datasets
+title: "Flora: The DataHerb Index"
+description: Find the herbs for your project
 exclude: true
 ---
 
@@ -10,7 +10,7 @@ Here we generate all the tags.
 {% endcomment%}
 
 {% assign rawtags = "" %}
-{% for post in site.datasets %}
+{% for post in site.flora %}
 {% assign ttags = post.tags | join:'|' | append:'|' %}
 {% assign rawtags = rawtags | append:ttags %}
 {% endfor %}
@@ -49,7 +49,7 @@ Here we generate all the tags.
 {% for tag in tags %}
 <h2 id="{{ tag | slugify }}">#{{ tag }}</h2>
 <ul class="codinfox-category-list">
-  {% for post in site.datasets %}
+  {% for post in site.flora %}
   {% if post.tags contains tag %}
   {% assign posts_with_tags = posts_with_tags | push: post %}
   <article class="post-item">
@@ -79,7 +79,7 @@ Here we generate all the tags.
 
 <h2 id="{{ tag | slugify }}">#MISC</h2>
 <ul class="codinfox-category-list">
-  {% for post in site.datasets %}
+  {% for post in site.flora %}
   {% if posts_with_tags contains post %}
   {% else %}
   <article class="post-item">

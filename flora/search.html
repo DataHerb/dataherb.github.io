@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Dataset Search
-description: Find datasets
+title: Search on Flora
+description: Search for datasets
 exclude: true
 ---
 
 <div id="all-knowledge-cards--button">
-    <button class="all-knowledge-cards"><a href="{{ "/datasets/" | relative_url }}" >Full List of Datasets</a></button>
+    <button class="all-knowledge-cards"><a href="{{ "/flora/" | relative_url }}" >Full List of DataHerbs</a></button>
 </div>
 
 
@@ -16,7 +16,7 @@ exclude: true
     <div id="search-container">
       <div class="field has-addons has-addons-centered">
         <div class="control has-icons-right is-expanded">
-          <input class="input is-large is-info" type="text" id="search-input" placeholder="search datasets">
+          <input class="input is-large is-info" type="text" id="search-input" placeholder="search dataherbs in flora">
           <span class="icon is-large is-right">
             <i class="fas fa-search"></i>
           </span>
@@ -37,6 +37,6 @@ exclude: true
   SimpleJekyllSearch({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
-    json: '{{ "/api/datasets.json" | relative_url }}'
+    json: '{{ "/api/flora.json" | relative_url }}'
   })
 </script>

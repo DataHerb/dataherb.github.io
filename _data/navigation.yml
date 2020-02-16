@@ -1,10 +1,10 @@
 # Site navigation links
 main:
 
-- title: Datasets
-  url: /datasets/
-  excerpt: "Find datasets"
-- title: Add Datasets
+- title: Flora
+  url: /flora/
+  excerpt: "Find datasets in flora"
+- title: Contribute
   url: /add/
   excerpt: "Add your datasets"
 - title: About
