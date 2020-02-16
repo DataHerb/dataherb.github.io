@@ -43,7 +43,7 @@ minima:
 # theme: minima
 
 collections:
-  datasets:
+  flora:
     output: true
 
 permalink: /:categories/:title:output_ext
@@ -94,7 +94,7 @@ kramdown:
 
 # Collections
 collections:
-  datasets:
+  flora:
     output: true
     permalink: /:collection/:path/
 
@@ -121,15 +121,15 @@ defaults:
   # _dataset
   - scope:
       path: ""
-      type: datasets
+      type: "flora"
     values:
-      layout: dataset
+      layout: dataherb
       read_time: false
       author_profile: false
       share: false
       comments: false
       sidebar:
-        nav: "datasets"
+        nav: "flora"
 
 
 

@@ -6,7 +6,7 @@ layout: default
 <article class="post">
 
 <header class="post-header">
-  <h1 class="has-text-centered is-size-1" itemprop="name headline"><a href="/datasets">Dataset</a></h1>
+  <h1 class="has-text-centered is-size-1" itemprop="name headline"><a href="/flora">DataHerb: </a></h1>
   <h2 class="post-title has-text-centered is-size-2" itemprop="name headline">{{ page.name }}</h2>
   <p class="post-meta has-text-centered">
     <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -17,39 +17,44 @@ layout: default
      • <span style="font-style: regular;">{</span>{% for cate in page.category %}
      <span style="padding-right: 0.2em;padding-left: 0.2em;">
        {% comment %}
-       <a href="{{ site.url }}{{ site.baseurl }}/datasets/all/#{{ cate | slugify }}">⸢{{ cate }}⸥</a>
+       <a href="{{ site.url }}{{ site.baseurl }}/flora/all/#{{ cate | slugify }}">⸢{{ cate }}⸥</a>
        {% endcomment %}
-       <a href="{{ site.url }}{{ site.baseurl }}/datasets/all/?keywords={{ cate | slugify }}">⸢{{ cate }}⸥</a>
+       <a href="{{ site.url }}{{ site.baseurl }}/flora/all/?keywords={{ cate | slugify }}">⸢{{ cate }}⸥</a>
      </span>
      {% endfor %}
      }
     {% endif %}
     {% if page.tags %}
      • <span style="font-style: regular;">[</span>{% for tag in page.tags %}
-     <span style="padding-right: 0.2em;padding-left: 0.2em;"><a href="{{ site.url }}{{ site.baseurl }}/datasets/#{{ tag | slugify }}">#{{ tag }}</a></span>
+     <span style="padding-right: 0.2em;padding-left: 0.2em;"><a href="{{ site.url }}{{ site.baseurl }}/flora/#{{ tag | slugify }}">#{{ tag }}</a></span>
      {% endfor %}
      ]
     {% endif %}
   </p>
 </header>
 
-<div class="is-divider" data-content="DATASET"></div>
+<div class="is-divider" data-content="DATAHERB"></div>
 
 
 <article class="message is-info">
   <div class="message-header">
-    <p>Metadata</p>
+    <p>DataHerb Metadata</p>
   </div>
   <div class="message-body">
     <ul class="metadata-list">
-    {% if page.dataset_id %}
-      <li><span class="metadata-key">Dataset ID:</span> {{ page.dataset_id }}</li>
+    {% if page.herb_id %}
+      <li><span class="metadata-key">DataHerb ID:</span> <code>{{ page.herb_id }}</code></li>
     {% endif %}
     {% if page.name %}
-      <li><span class="metadata-key">Dataset Name:</span> {{ page.name }}</li>
+      <li><span class="metadata-key">DataHerb Name:</span> {{ page.name }}</li>
     {% endif %}
     {% if page.contributors %}
-      <li><span class="metadata-key">Contributors:</span> {% for contributor in page.contributors %}<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ contributor.name }}</span></span>{% endfor %}</li>
+      <li>
+        <span class="metadata-key">Contributors:</span>
+        {% for contributor in page.contributors %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ contributor.name }}</span></span>
+          {% endfor %}
+      </li>
     {% endif %}
     {% if page.description %}
       <li><span class="metadata-key">Description:</span> {{ page.description }}</li>
@@ -63,12 +68,12 @@ layout: default
 
 <article class="message is-success">
   <div class="message-header">
-    <p>Dataset</p>
+    <p>DataHerb Leaves: Files in Dataset</p>
   </div>
   <div class="message-body">
     {% if page.data %}
     {% for data in page.data %}
-      <div class="is-divider" data-content="{{ data.format }}"></div>
+      <div class="is-divider" data-content="{{ data.format }}" style="border-top:.1rem dashed #dbdbdb !important;"></div>
       <ul class="metadata-list" style="margin-bottom: 5em;">
         {% if data.name %}<li><span class="metadata-key">Name:</span> {{ data.name }} </li>{% endif %}
         <li><span class="metadata-key">File:</span> <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}" download="{{ data.path }}">{{ data.path }}</a></li>
