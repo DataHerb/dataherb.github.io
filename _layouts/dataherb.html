@@ -62,6 +62,17 @@ layout: default
     {% if page.repository %}
       <li><span class="metadata-key">GitHub Repository:</span> <a href="https://github.com/{{ page.repository }}">{{ page.repository }}</a></li>
     {% endif %}
+    {% if page.license %}
+      <li>
+        <span class="metadata-key">Licenses:</span>
+        <ol>
+          {% for license in page.license %}
+          <li>
+            <a href="{{ license.link }}">{{ license.name }}</a> </li>
+          {% endfor %}
+          </ol>
+      </li>
+    {% endif %}
     </ul>
   </div>
 </article>
