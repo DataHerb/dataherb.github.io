@@ -46,6 +46,9 @@ data:
   size: 4K
   updated_at: '2020-02-17'
 description: European countries and their areas in Europe
+license:
+- link: https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License
+  name: Creative Commons Attribution-ShareAlike License
 name: European Countries by Area
 references:
 - link: https://en.wikipedia.org/wiki/List_of_European_countries_by_area
