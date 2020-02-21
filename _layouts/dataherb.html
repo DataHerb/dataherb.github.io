@@ -84,36 +84,78 @@ layout: default
   </div>
   <div class="message-body">
     {% if page.data %}
+    <div class="tabs is-boxed">
+      <ul id="tabs-menu">
+        <li class="is-active" data-target="file-metadata"><a style="text-decoration: none;">File Metadata</a></li>
+        <li data-target="file-retrieval"><a style="text-decoration: none;">File Retrieval</a></li>
+      </ul>
+    </div>
     {% for data in page.data %}
-      <div class="is-divider" data-content="{{ data.format }}" style="border-top:.1rem dashed #dbdbdb !important;"></div>
-
-          <ul class="metadata-list" style="margin-bottom: 5em;">
-            {% if data.name %}<li><span class="metadata-key">Name:</span> {{ data.name }} </li>{% endif %}
-            <li>
-              <span class="metadata-key">
-                File:
-              </span>
-              <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}" download="{{ data.path }}">
-                {{ data.path }}
-              </a>
-              <!-- Trigger -->
-              <span style="margin-left: 1em">
-                <button class="button is-outlined is-small" style="font-size: 0.6rem !important;" data-clipboard-text="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}">
-                  <i class="far fa-copy"></i>
-                </button>
-              </span>
-            </li>
-            <li><span class="metadata-key">Format:</span> {{ data.format }}</li>
-            <li><span class="metadata-key">Size:</span> {{ data.size }}</li>
-            <li><span class="metadata-key">Fields:</span>
+      <div class="is-divider" data-content="{{ data.format }}" style="border-top:.15rem dashed #dbdbdb !important;">
+      </div>
+      <ul class="metadata-list">
+        {% if data.name %}<li><span class="metadata-key">Name:</span> {{ data.name }} </li>{% endif %}
+        <li>
+          <span class="metadata-key">
+            File:
+          </span>
+          <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}" download="{{ data.path }}">
+            {{ data.path }}
+          </a>
+          <!-- Trigger -->
+          <span style="margin-left: 1em">
+            <button class="button is-outlined is-small" style="font-size: 0.6rem !important;" data-clipboard-text="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}">
+              <i class="far fa-copy"></i>
+            </button>
+          </span>
+        </li>
+        <li><span class="metadata-key">Format:</span> {{ data.format }}</li>
+        <li><span class="metadata-key">Size:</span> {{ data.size }}</li>
+      </ul>
+     <div class="tab-content metadata-list" id="file-metadata">
+          <article class="message is-warning">
+            <div class="message-header">
+              <p>Fields</p>
+            </div>
+            <div class="message-body">
               <ol>
-              {% for field in data.fields %}
-              <li>
-                <span class="metadata-key">{{ field.name }}:</span> {{ field.description }}</li>
-              {% endfor %}
-              </ol>
-            </li>
-          </ul>
+                {% for field in data.fields %}
+                <li>
+                  <span class="metadata-key">{{ field.name }}:</span> {{ field.description }}</li>
+                {% endfor %}
+                </ol>
+            </div>
+          </article>
+        </div>
+        <div class="tab-content" id="file-retrieval">
+          <div style="margin-bottom: 5em;">
+            {% if data.format == "csv" %}
+              <article class="message is-warning">
+                <div class="message-header">
+                  <p>Import Data</p>
+                </div>
+                <div class="message-body">
+                  <div class="is-divider" data-content="Google Spreadsheet" style="border-top:.1rem dashed #ffdd57 !important;">
+                  </div>
+                  Copy the following code and paste into a Google Spreadsheet cell.
+                  <div class="highlight">
+                    <pre>=IMPORTDATA("https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}")</pre>
+                  </div>
+                </div>
+              </article>
+            {% else %}
+            <article class="message is-warning">
+                <div class="message-header">
+                  <p>Import Data</p>
+                </div>
+                <div class="message-body">
+                  No methods at this moment.
+                </div>
+              </article>
+            {% endif %}
+          </div>
+        </div>
+
 
           {% comment %}
           {% if data.format == "csv" %}
@@ -158,19 +200,28 @@ layout: default
 </article>
 
 <script>
-  function openTab(evt, tabName) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("content-tab");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tab");
-    for (i = 0; i < x.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" is-active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " is-active";
-  }
+  const tabSystem = {
+    init(){
+        document.querySelectorAll('#tabs-menu').forEach(tabMenu => {
+            Array.from(tabMenu.children).forEach((child, ind) => {
+                child.addEventListener('click', () => {
+                    tabSystem.toggle(child.dataset.target);
+                });
+                if(child.className.includes('is-active')){
+                    tabSystem.toggle(child.dataset.target);
+                }
+            });
+        });
+    },
+    toggle(targetId){
+        document.querySelectorAll('.tab-content').forEach(contentElement=>{
+            contentElement.style.display = contentElement.id === targetId ? 'block' : 'none';
+            document.querySelector(`[data-target="${contentElement.id}"]`).classList[contentElement.id === targetId ? 'add' : 'remove']('is-active');
+        })
+    },
+};
+// use it
+tabSystem.init()
 </script>
 
 

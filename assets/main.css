@@ -274,3 +274,7 @@ div.mermaid {
 .metadata-key {
   font-weight: bold;
 }
+
+.tab-content {
+  margin-left:1em;
+}
