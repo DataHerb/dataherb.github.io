@@ -91,7 +91,7 @@ layout: default
       </ul>
     </div>
     {% for data in page.data %}
-      <div class="is-divider" data-content="{{ data.format }}" style="border-top:.1rem dashed #dbdbdb !important;">
+      <div class="is-divider" data-content="{{ data.format }}" style="border-top:.15rem dashed #dbdbdb !important;">
       </div>
       <ul class="metadata-list">
         {% if data.name %}<li><span class="metadata-key">Name:</span> {{ data.name }} </li>{% endif %}
@@ -112,30 +112,44 @@ layout: default
         <li><span class="metadata-key">Format:</span> {{ data.format }}</li>
         <li><span class="metadata-key">Size:</span> {{ data.size }}</li>
       </ul>
-     <div class="tab-content" id="file-metadata">
-      <ul class="metadata-list" style="margin-bottom: 5em;">
-              <li><span class="metadata-key">Fields:</span>
-                <ol>
+     <div class="tab-content metadata-list" id="file-metadata">
+          <article class="message is-warning">
+            <div class="message-header">
+              <p>Fields</p>
+            </div>
+            <div class="message-body">
+              <ol>
                 {% for field in data.fields %}
                 <li>
                   <span class="metadata-key">{{ field.name }}:</span> {{ field.description }}</li>
                 {% endfor %}
                 </ol>
-              </li>
-            </ul>
+            </div>
+          </article>
         </div>
         <div class="tab-content" id="file-retrieval">
           <div style="margin-bottom: 5em;">
             {% if data.format == "csv" %}
               <article class="message is-warning">
                 <div class="message-header">
-                  <p>Import to Google Spreadsheet</p>
+                  <p>Import Data</p>
                 </div>
                 <div class="message-body">
+                  <div class="is-divider" data-content="Google Spreadsheet" style="border-top:.1rem dashed #ffdd57 !important;">
+                  </div>
                   Copy the following code and paste into a Google Spreadsheet cell.
                   <div class="highlight">
                     <pre>=IMPORTDATA("https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}")</pre>
                   </div>
+                </div>
+              </article>
+            {% else %}
+            <article class="message is-warning">
+                <div class="message-header">
+                  <p>Import Data</p>
+                </div>
+                <div class="message-body">
+                  No methods at this moment.
                 </div>
               </article>
             {% endif %}
@@ -209,6 +223,7 @@ layout: default
 // use it
 tabSystem.init()
 </script>
+
 
 {% include extras/clipboard.html %}
 {% include utterances-comments.html %}
