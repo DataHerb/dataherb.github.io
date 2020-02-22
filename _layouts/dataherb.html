@@ -86,28 +86,32 @@ layout: default
     {% if page.data %}
     <div class="tabs is-boxed">
       <ul id="tabs-menu">
-        <li class="is-active" data-target="file-metadata"><a style="text-decoration: none;">File Metadata</a></li>
-        <li data-target="file-retrieval"><a style="text-decoration: none;">File Retrieval</a></li>
+        <li class="is-active" data-target="file-metadata"><a style="text-decoration: none;">Metadata</a></li>
+        <li data-target="file-retrieval"><a style="text-decoration: none;">Usage</a></li>
       </ul>
     </div>
     {% for data in page.data %}
+      {% assign data_path_base_url = 'https://raw.githubusercontent.com/' %}
+      {% assign data_path_branch = '/master/' %}
+      {% assign data_path = data_path_base_url | append: page.repository | append: data_path_branch  | append: data.path %}
       <div class="is-divider" data-content="{{ data.format }}" style="border-top:.15rem dashed #dbdbdb !important;">
       </div>
       <ul class="metadata-list">
         {% if data.name %}<li><span class="metadata-key">Name:</span> {{ data.name }} </li>{% endif %}
         <li>
-          <span class="metadata-key">
-            File:
-          </span>
-          <a href="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}" download="{{ data.path }}">
-            {{ data.path }}
-          </a>
-          <!-- Trigger -->
-          <span style="margin-left: 1em">
-            <button class="button is-outlined is-small" style="font-size: 0.6rem !important;" data-clipboard-text="https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}">
-              <i class="far fa-copy"></i>
-            </button>
-          </span>
+          <div class="field has-addons is-inline-flex" style="width: 100%; max-width: 100%;">
+            <span class="metadata-key">
+              File:
+            </span>
+            <div class="control" style="width: 100%; margin-left:0.5em;">
+              <input class="input" id="{{ data.path | slugify }}" style="height: 2em; width:100%;" value="{{data_path}}" readonly>
+            </div>
+            <div class="control">
+              <button class="button icon is-right" style="height:2em;" data-clipboard-target="#{{ data.path | slugify }}">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+          </div>
         </li>
         <li><span class="metadata-key">Format:</span> {{ data.format }}</li>
         <li><span class="metadata-key">Size:</span> {{ data.size }}</li>
