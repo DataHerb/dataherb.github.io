@@ -133,30 +133,41 @@ layout: default
         </div>
         <div class="tab-content" id="file-retrieval">
           <div style="margin-bottom: 5em;">
-            {% if data.format == "csv" %}
               <article class="message is-warning">
                 <div class="message-header">
                   <p>Import Data</p>
                 </div>
                 <div class="message-body">
+                  {% if data.format == "csv" %}
                   <div class="is-divider" data-content="Google Spreadsheet" style="border-top:.1rem dashed #ffdd57 !important;">
                   </div>
                   Copy the following code and paste into a Google Spreadsheet cell.
                   <div class="highlight">
                     <pre>=IMPORTDATA("https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}")</pre>
                   </div>
+                  {% endif %}
+                  {% if data.format == "csv" %}
+                  <div class="is-divider" data-content="Pandas" style="border-top:.1rem dashed #ffdd57 !important;">
+                  </div>
+                  Load data into a <a href="https://pandas.pydata.org">Pandas</a> DataFrame:
+                  <div class="highlight">
+                    <pre>import pandas as pd
+url = "https://raw.githubusercontent.com/InterImm/nasa-exoplanet-archive/master/dataset/confirmed_exoplanets.csv"
+df = pd.read_csv(url)</pre>
+                  </div>
+                  {% endif %}
+                  {% if data.format == "json" %}
+                  <div class="is-divider" data-content="Pandas" style="border-top:.1rem dashed #ffdd57 !important;">
+                  </div>
+                  Load data into a <a href="https://pandas.pydata.org">Pandas</a> DataFrame:
+                  <div class="highlight">
+                    <pre>import pandas as pd
+url = "https://raw.githubusercontent.com/InterImm/nasa-exoplanet-archive/master/dataset/confirmed_exoplanets.csv"
+df = pd.read_json(url)</pre>
+                  </div>
+                  {% endif %}
                 </div>
               </article>
-            {% else %}
-            <article class="message is-warning">
-                <div class="message-header">
-                  <p>Import Data</p>
-                </div>
-                <div class="message-body">
-                  No methods at this moment.
-                </div>
-              </article>
-            {% endif %}
           </div>
         </div>
 
@@ -231,3 +242,4 @@ tabSystem.init()
 
 {% include extras/clipboard.html %}
 {% include utterances-comments.html %}
+
