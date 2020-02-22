@@ -143,7 +143,7 @@ layout: default
                   </div>
                   Copy the following code and paste into a Google Spreadsheet cell.
                   <div class="highlight">
-                    <pre>=IMPORTDATA("https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}")</pre>
+                    <pre>=IMPORTDATA("{{data_path}}")</pre>
                   </div>
                   {% endif %}
                   {% if data.format == "csv" %}
@@ -152,7 +152,7 @@ layout: default
                   Load data into a <a href="https://pandas.pydata.org">Pandas</a> DataFrame:
                   <div class="highlight">
                     <pre>import pandas as pd
-url = "https://raw.githubusercontent.com/InterImm/nasa-exoplanet-archive/master/dataset/confirmed_exoplanets.csv"
+url = "{{data_path}}"
 df = pd.read_csv(url)</pre>
                   </div>
                   {% endif %}
@@ -162,7 +162,7 @@ df = pd.read_csv(url)</pre>
                   Load data into a <a href="https://pandas.pydata.org">Pandas</a> DataFrame:
                   <div class="highlight">
                     <pre>import pandas as pd
-url = "https://raw.githubusercontent.com/InterImm/nasa-exoplanet-archive/master/dataset/confirmed_exoplanets.csv"
+url = "{{data_path}}"
 df = pd.read_json(url)</pre>
                   </div>
                   {% endif %}
