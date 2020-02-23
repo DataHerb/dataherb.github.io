@@ -2,7 +2,8 @@
 layout: default
 ---
 
-{% include extras/datalib.html %}
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="{{site.base_url}}/assets/data/dataherb.js"></script>
 
 <article class="post">
 
@@ -130,6 +131,28 @@ layout: default
                 </ol>
             </div>
           </article>
+          {% if data.format == "csv" %}
+          <article class="message is-warning">
+            <div class="message-header">
+              <p>Preview</p>
+            </div>
+            <div class="message-body data-preview" id="preview-{{ data.path | slugify }}">
+              This is a preview of the first 5 rows.
+
+            </div>
+          </article>
+          <script>
+            d3.csv("{{data_path}}").then(function(data) {
+              var parsedCSV = data;
+              console.log(data)
+              if (data[0]) {
+                  keys = Object.keys(data[0])
+              }
+
+              tabulate('#preview-{{ data.path | slugify }}', data.slice(0,5), keys)
+          });
+          </script>
+          {% endif %}
         </div>
         <div class="tab-content" id="file-retrieval">
           <div style="margin-bottom: 5em;">
@@ -170,18 +193,6 @@ df = pd.read_json(url)</pre>
               </article>
           </div>
         </div>
-
-
-          {% comment %}
-          {% if data.format == "csv" %}
-          <script>
-            var data = dl.csv('https://raw.githubusercontent.com/{{ page.repository }}/master/{{ data.path }}');
-            console.log("=======================")
-            console.log("{{ data.path }} in {{ page.repository }}")
-            console.log(dl.format.summary(data));
-          </script>
-          {% endif %}
-          {% endcomment %}
     {% endfor %}
     {% endif %}
   </div>
