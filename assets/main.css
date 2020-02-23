@@ -538,3 +538,7 @@ pre.line-numbers > code {
 	padding-right: 0.8em;
 	text-align: right;
 }
+
+.data-preview-table {
+  overflow-x: scroll;
+}
