@@ -21,11 +21,8 @@
               <h1 class="page-heading">{{ page.title }}</h1>
             {%- endif -%} -->
 
-            <div class="columns">
-              <div class="column">
-                A Herb is
-              </div>
-            </div>
+            {% include home/intro-metadata.html %}
+            <div class="is-divider" style="border-top:.1rem dashed #dbdbdb57 !important;margin: 1rem 0 !important;"></div>
             {% include home/intro-community.html %}
 
             {{ content }}
