@@ -151,7 +151,7 @@ data:
   - description: Discovery Facility
     name: pl_facility
   format: csv
-  path: confirmed_exoplanets.csv
+  path: dataset/confirmed_exoplanets.csv
   size: 21K
   updated_at: '2020-01-30'
 - fields:
@@ -300,7 +300,7 @@ data:
   - description: Discovery Facility
     name: pl_facility
   format: json
-  path: confirmed_exoplanets.json
+  path: dataset/confirmed_exoplanets.json
   size: 70K
   updated_at: '2020-01-30'
 description: Exoplanet data from NASA Exoplanet Archive.
