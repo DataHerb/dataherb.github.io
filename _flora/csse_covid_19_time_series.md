@@ -2,8 +2,8 @@
 title: COVID-19 Timeseries of Confirmed, Death, and Recovered
 herb_id: csse_covid_19_time_series
 contributors:
-- github: DataHerb
-  name: DataHerb
+- github: CSSEGISandData
+  name: CSSEGISandData
 data:
 - fields:
   - description: province or state of the cases
