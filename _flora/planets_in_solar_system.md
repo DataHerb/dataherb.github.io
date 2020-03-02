@@ -5,7 +5,8 @@ contributors:
 - github: InterImm
   name: Interplanetary Immigration Center
 data:
-- fields:
+- description: list of planets in our solar system with their basic information
+  fields:
   - description: name of the planet
     name: name
   - description: equatorial diameter measured relative to Earth
@@ -35,7 +36,8 @@ data:
   path: dataset/planets_in_solar_system.csv
   size: 714B
   updated_at: '2020-02-19'
-- fields:
+- description: list of planets in our solar system with their basic information
+  fields:
   - description: name of the planet
     name: name
   - description: equatorial diameter measured relative to Earth
