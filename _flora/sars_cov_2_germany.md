@@ -1,5 +1,5 @@
 ---
-title: SARS-COV-2 Cases in Germany by Date and State
+title: SARS-COV-2 Cases in Germany by Date and State
 herb_id: sars_cov_2_germany
 contributors:
 - github: DataHerb
