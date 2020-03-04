@@ -19,7 +19,7 @@ data:
   size: null
   updated_at: ''
 description: SARS-COV-2 cases in germany by date and state for each day
-name: "SARS-\x05COV-2 Cases in Germany by Date and State"
+name: SARS-COV-2 Cases in Germany by Date and State
 references:
 - link: https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html
   name: 'SARS-CoV-2: Fallzahlen in Deutschland, China und weltweit'
