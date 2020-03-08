@@ -35,6 +35,22 @@ data:
   path: dataset/covid-19-at.csv
   size: null
   updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in Netherland
+  fields:
+  - description: alpha 2 code of the country
+    name: country
+  - description: city in Netherland
+    name: city
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: date of the record update on the volksgezondheidenzorg website, only
+      the date matters
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in NL in csv format
+  path: dataset/covid-19-nl.csv
+  size: null
+  updated_at: ''
 description: SARS-COV-2/COVID-19 Cases in Europe by Country, State, and Date
 name: SARS-COV-2/COVID-19 Cases in Europe
 references:
@@ -42,6 +58,8 @@ references:
   name: 'SARS-CoV-2: Fallzahlen in Deutschland, China und weltweit'
 - link: https://www.sozialministerium.at/Themen/Gesundheit/Uebertragbare-Krankheiten/Infektionskrankheiten-A-Z/Neuartiges-Coronavirus.html
   name: Neuartiges Coronavirus (COVID-19)
+- link: https://www.volksgezondheidenzorg.info/onderwerp/infectieziekten/regionaal-internationaal/coronavirus-covid-19#node-coronavirus-covid-19-meldingen
+  name: volksgezondheidenzorg.info in NL
 repository: covid19-eu-zh/covid19-eu-data
 tags:
 - Health
