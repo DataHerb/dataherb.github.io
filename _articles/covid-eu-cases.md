@@ -5,7 +5,6 @@ date: 2020-03-01 #2014-08-27T11:57:41-04:00
 modified: 2020-03-01
 subtitle: "Collecting official data"
 authors:
-- id: lm
 - id: covid19-eu-zh
 comments: true
 types:
@@ -23,6 +22,8 @@ references:
 ---
 
 The [covid19-eu-zh/covid19-eu-data](https://github.com/covid19-eu-zh/covid19-eu-data) repository is an experiment of data scraping and aggregation using GitHub Actions.
+
+> covid19-eu-zh is a dynamic and energetic team. Please consider follow their [Chinese telegram channel for COVID-19 in Europe](https://t.me/covid19_eu_zh_c).
 
 ## Structure
 
