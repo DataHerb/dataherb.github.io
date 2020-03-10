@@ -10,7 +10,7 @@ comments: true
 types:
 - 'dataset'
 category:
-- github
+- GitHub
 tag:
 - 'GitHub Actions'
 summary: covid19-eu-zh/covid19-eu-data is an automated COVID-19 confirmed cases data collection experiment using GitHub Actions.
