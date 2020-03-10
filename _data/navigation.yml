@@ -4,9 +4,26 @@ main:
 - title: Flora
   url: /flora/
   excerpt: "Find datasets in flora"
-- title: Contribute
+- title: "Add Data"
   url: /add/
   excerpt: "Add your datasets"
+- title: "Articles"
+  url: /articles/
+  excerpt: "Share your datasets"
+- title: "Ecosystem"
+  url: /ecosystem/
+  excerpt: "DataHerb Ecosystem"
+  subnav:
+    - title: "Python Package"
+      url: /ecosystem/dataherb-python
+      excerpt: "Python Package for metadata generation and dataset loading"
+- title: "Community"
+  url: /community/
+  excerpt: "The DataHerb Community"
+  subnav:
+    - title: "Telegram"
+      url: https://t.me/dataherb
+      excerpt: "Telegram Channel and group for data sharing"
 - title: About
   url: /about/
   excerpt: "About DataHerb"

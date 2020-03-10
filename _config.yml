@@ -97,6 +97,8 @@ collections:
   flora:
     output: true
     permalink: /:collection/:path/
+  articles:
+    output: true
 
 # Defaults
 defaults:
@@ -130,6 +132,18 @@ defaults:
       comments: false
       sidebar:
         nav: "flora"
+  # _reading
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: articles
+      read_time: false
+      author_profile: false
+      share: false
+      comments: true
+      sidebar:
+        nav: "articles"
 
 
 

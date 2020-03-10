@@ -21,7 +21,7 @@
               <a class="navbar-item{% if page.url == '/' %} is-active{% endif %} has-text-weight-bold" href="/"><i class="fas fa-home"></i></a>
 
               {% for link in site.data.navigation.main %}
-              {% if link.url contains 'http' %}
+              {% if link.url contains 'http' or 'https' %}
               {% assign domain = '' %}
               {% else %}
               {% assign domain = site.url %}
