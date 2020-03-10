@@ -6,6 +6,7 @@ modified: 2020-03-01
 subtitle: "Collecting official data"
 authors:
 - id: lm
+- id: covid19-eu-zh
 comments: true
 types:
 - 'dataset'
