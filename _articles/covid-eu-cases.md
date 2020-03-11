@@ -16,6 +16,7 @@ tag:
 summary: covid19-eu-zh/covid19-eu-data is an automated COVID-19 confirmed cases data collection experiment using GitHub Actions.
 dataset:
   - id: covid19_eu_data
+charts: true
 references:
   - name: "Data Mining: Concepts and Techniques"
     link: https://www.amazon.com/Data-Mining-Concepts-Techniques-Management/dp/0123814790
@@ -25,7 +26,143 @@ The [covid19-eu-zh/covid19-eu-data](https://github.com/covid19-eu-zh/covid19-eu-
 
 > covid19-eu-zh is a dynamic and energetic team. Please consider follow their [Chinese telegram channel for COVID-19 in Europe](https://t.me/covid19_eu_zh_c).
 
-## Structure
+## Visualizations
+
+<script>
+
+
+function diff(ary) {
+    var newA = [];
+    for (var i = 1; i < ary.length; i++)  newA.push( ary[i] - ary[i - 1] )
+    return newA;
+}
+
+function element_diff(arrA,arrB) {
+    var newA = [];
+    for (var i = 1; i < arrA.length; i++)  newA.push( arrA[i]/arrB[i] )
+    return newA;
+}
+
+de_url = "https://raw.githubusercontent.com/covid19-eu-zh/covid19-eu-data/master/dataset/covid-19-de.csv"
+
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
+
+
+function uniqueRegions(de_data) {
+  return de_data.map(row => row.state ).filter(onlyUnique)
+}
+
+function regionTraces (de_data, keyword) {
+
+  de_total_cases = de_data.filter(row => (row.state === keyword) && (new Date(row.datetime).getHours() == 15) ).map(row => row.cases);
+
+  de_total_datetime = de_data.filter(row => (row.state === keyword) && (new Date(row.datetime).getHours() == 15)).map(row => row.datetime);
+  de_total_datetime_diff = diff(de_total_datetime.map(dt => new Date(dt))).map(dt => dt/(1000*60*60))
+  de_total_cases_diff = diff(de_total_cases)
+
+return {
+  "cases": de_total_cases,
+  "datetime": de_total_datetime,
+  "diff": de_total_cases_diff
+  }
+}
+
+Plotly.d3.csv(
+  de_url, (err, de_data) => {
+
+regions = uniqueRegions(de_data)
+regions = regions.filter(el => (el != "sum"))
+regions.unshift("sum")
+console.log(
+  "all regions in germany: ",
+  regions
+)
+
+function makePlot(region) {
+
+  de_total = regionTraces(de_data, region)
+
+  var trace_total = {
+    x: de_total["datetime"],
+    y: de_total["cases"],
+    mode: 'markers',
+    type: 'bar',
+    name: `Total (${region})`
+  };
+
+  var trace_daily = {
+    x: de_total["datetime"].slice(1,de_total_datetime.length),
+    y: de_total["diff"],
+    mode: 'markers+lines',
+    yaxis: 'y2',
+    type: 'line',
+    name: `Daily (${region})`
+  };
+
+  var data = [
+    trace_total, trace_daily
+  ];
+
+  var layout = {
+    title: `SARS-COV-2 Confirmed Cases (${region})`,
+    yaxis: {title: 'Total Confirmed Cases'},
+    yaxis2: {
+      title: 'Daily Confirmed Cases',
+      titlefont: {color: 'rgb(148, 103, 189)'},
+      tickfont: {color: 'rgb(148, 103, 189)'},
+      overlaying: 'y',
+      side: 'right'
+    },
+    legend: {"orientation": "h"}
+  };
+
+  Plotly.newPlot("de-cases", data, layout);
+}
+
+makePlot("sum")
+
+
+var innerContainer = document.querySelector('[data-num="0"'),
+    plotEl = innerContainer.querySelector('.plot'),
+    regionSelector = innerContainer.querySelector('.region');
+
+function assignOptions(textArray, selector) {
+  for (var i = 0; i < textArray.length;  i++) {
+      var currentOption = document.createElement('option');
+      currentOption.text = textArray[i];
+      selector.appendChild(currentOption);
+  }
+}
+
+assignOptions(regions, regionSelector);
+
+function updateRegion(){
+    makePlot(regionSelector.value);
+}
+
+regionSelector.addEventListener('change', updateRegion, false);
+
+  }
+)
+
+</script>
+
+<div id="bubbleplots">
+    <div class="bubbleplot" data-num="0">
+      <div class="control-row">
+          Select Region: <select class="button region">
+          </select>
+        </div>
+      <div class="plot" id="de-cases"></div>
+    </div>
+  </div>
+
+
+
+
+## Data Collection
 
 The structure of the project is as follows.
 
