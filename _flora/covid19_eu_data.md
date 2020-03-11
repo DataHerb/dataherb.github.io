@@ -51,6 +51,24 @@ data:
   path: dataset/covid-19-nl.csv
   size: null
   updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in Netherland
+  fields:
+  - description: alpha 2 code of the country
+    name: country
+  - description: local authorities in England, city, town, borough, etc.
+    name: authority
+  - description: number of cases by the specified datetime, it can be a range
+    name: cases
+  - description: Lower bound of the number of cases
+    name: cases_lower
+  - name: cases_upper
+  - description: datetime of the record update on the website
+    name: Upper bound of the number of cases
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in NL in csv format
+  path: dataset/covid-19-nl.csv
+  size: null
+  updated_at: ''
 description: SARS-COV-2/COVID-19 Cases in Europe by Country, State, and Date
 name: SARS-COV-2/COVID-19 Cases in Europe
 references:
@@ -60,6 +78,8 @@ references:
   name: Neuartiges Coronavirus (COVID-19)
 - link: https://www.volksgezondheidenzorg.info/onderwerp/infectieziekten/regionaal-internationaal/coronavirus-covid-19#node-coronavirus-covid-19-meldingen
   name: volksgezondheidenzorg.info in NL
+- link: https://www.gov.uk/government/publications/coronavirus-covid-19-number-of-cases-in-england/coronavirus-covid-19-number-of-cases-in-england
+  name: Public Health England
 repository: covid19-eu-zh/covid19-eu-data
 tags:
 - Health
