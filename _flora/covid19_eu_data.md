@@ -51,7 +51,7 @@ data:
   path: dataset/covid-19-nl.csv
   size: null
   updated_at: ''
-- description: Records of SARS-COV-2/COVID-19 Cases in Netherland
+- description: Records of SARS-COV-2/COVID-19 Cases in UK
   fields:
   - description: alpha 2 code of the country
     name: country
@@ -65,8 +65,8 @@ data:
   - description: datetime of the record update on the website
     name: Upper bound of the number of cases
   format: csv
-  name: SARS-COV-2/COVID-19 Cases in NL in csv format
-  path: dataset/covid-19-nl.csv
+  name: SARS-COV-2/COVID-19 Cases in UK in csv format
+  path: dataset/covid-19-uk.csv
   size: null
   updated_at: ''
 description: SARS-COV-2/COVID-19 Cases in Europe by Country, State, and Date
