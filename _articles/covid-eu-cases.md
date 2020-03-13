@@ -3,7 +3,7 @@ layout: articles
 title:  "SARS-COV-2/COVID-19 Confirmed Cases in Europe"
 date: 2020-03-01 #2014-08-27T11:57:41-04:00
 modified: 2020-03-01
-subtitle: "Collecting official data"
+subtitle: "Collecting official SARS-CoV-2 data using GitHub Actions"
 authors:
 - id: covid19-eu-zh
 comments: true
@@ -18,19 +18,23 @@ dataset:
   - id: covid19_eu_data
 charts: true
 references:
-  - name: "Data Mining: Concepts and Techniques"
-    link: https://www.amazon.com/Data-Mining-Concepts-Techniques-Management/dp/0123814790
+  - name: "Automated Data Collection: COVID-19/SARS-COV-2 Cases in EU by Country, State/Province/Local Authorities, and Date"
+    link: https://github.com/covid19-eu-zh/covid19-eu-data
 ---
 
 The [covid19-eu-zh/covid19-eu-data](https://github.com/covid19-eu-zh/covid19-eu-data) repository is an experiment of data scraping and aggregation using GitHub Actions.
 
-> covid19-eu-zh is a dynamic and energetic team. Please consider follow their [Chinese telegram channel for COVID-19 in Europe](https://t.me/covid19_eu_zh_c).
+> covid19-eu-zh is a dynamic and energetic team. Please consider follow their [telegram channel for COVID-19 in Europe in Chinese](https://t.me/s/covid19_eu_zh_c).
 
-## Visualizations
+## The Dataset
+
+The dataset is being updated hourly. We are collecting data for AT, DE, ES, FR, NL, UK.[^1]
+
+### A Demo: Confirmed Cases in Germany
+
+
 
 <script>
-
-
 function diff(ary) {
     var newA = [];
     for (var i = 1; i < ary.length; i++)  newA.push( ary[i] - ary[i - 1] )
@@ -149,8 +153,8 @@ regionSelector.addEventListener('change', updateRegion, false);
 
 </script>
 
-<div id="bubbleplots">
-    <div class="bubbleplot" data-num="0">
+<div id="barcharts">
+    <div class="barcharts" data-num="0">
       <div class="control-row">
           Select Region: <select class="button region">
           </select>
@@ -266,3 +270,6 @@ jobs:
           repository: covid19-eu-zh/covid19-eu-data
           github_token: {% raw  %}${{ secrets.GITHUB_TOKEN }}{% endraw  %}
 {% endhighlight %}
+
+
+[^1]: For Spain, we only download the record PDF files. For UK, we are only collecting England for now.

@@ -83,11 +83,11 @@ layout: default
               <p>Dataset:</p>
             </div>
             <div class="message-body">
-              <ul>
+              <ol>
               {% for ref in page.dataset %}
                 <li><a href="{{ site.url }}{{ site.baseurl }}/flora/{{ ref.id }}" style="text-decoration:none;">DataHerb ID: {{ ref.id }}</a></li>
               {% endfor %}
-              </ul>
+              </ol>
             </div>
           </article>
       {% endif %}
@@ -98,11 +98,11 @@ layout: default
             <p>References:</p>
           </div>
           <div class="message-body">
-            <ul>
+            <ol>
             {% for ref in page.references %}
               <li><a href="{{ ref.link }}" style="text-decoration:none;">{{ ref.name }}</a></li>
             {% endfor %}
-            </ul>
+            </ol>
           </div>
         </article>
     {% endif %}
