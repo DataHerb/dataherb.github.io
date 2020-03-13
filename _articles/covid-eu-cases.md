@@ -216,7 +216,7 @@ dataset
 
 We manage the pipelines using GitHub Actions. The full set of workflows is found in [the original repository](https://github.com/covid19-eu-zh/covid19-eu-data/actions).
 
-We use Germany as an example. In the workflow for Germany, we have two trigger, pushing to master branch and schedule. The job steps are
+We use Germany as an example. In the workflow for Germany, we have two triggers, pushing to master branch and schedule. The job steps are
 
 1. Checkout the repository;
 2. Setup python and install python requirements;
