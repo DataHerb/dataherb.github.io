@@ -28,6 +28,10 @@ data:
     name: state
   - description: number of cases by the specified datetime
     name: cases
+  - description: recovered patients. started tracking on 2020-03-13
+    name: recovered
+  - description: number of deaths. started tracking on 2020-03-13
+    name: deaths
   - description: datetime of the record
     name: datetime
   format: csv
