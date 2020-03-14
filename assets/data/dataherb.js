@@ -1,5 +1,5 @@
 function tabulate(element_id, data, columns) {
-    var preview_div = d3.select(element_id).append('div').attr("class", "data-preview-table")
+	var preview_div = d3.select(element_id).append('div').attr("class", "data-preview-table")
     var table = preview_div.append('table')
 	var thead = table.append('thead')
 	var	tbody = table.append('tbody');
@@ -29,4 +29,31 @@ function tabulate(element_id, data, columns) {
 	    .text(function (d) { return d.value; });
 
   return table;
+}
+
+function loadCSVPreview(dataPath, previewId, first=0, last=5) {
+	// This is a preview of the first 5 rows.
+	var preview_notify_div = d3.select(previewId).append('div').attr("class", "data-preview-table-notify")
+	preview_notify_div.append("div")
+	.attr("class", "notification")
+	.text(`This is a preview of the rows ${first} to ${last}.`)
+
+	d3.csv(dataPath).then(function(data) {
+	  console.log(data)
+	  if (data[0]) {
+		  keys = Object.keys(data[0])
+	  }
+	  tabulate(previewId, data.slice(first,last), keys)
+  })
+}
+
+function get_filesize(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("HEAD", url, true);
+    xhr.onreadystatechange = function() {
+        if (this.readyState == this.DONE) {
+            callback(parseInt(xhr.getResponseHeader("Content-Length")));
+        }
+    };
+    xhr.send();
 }

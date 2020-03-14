@@ -4,6 +4,7 @@ layout: default
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="{{site.base_url}}/assets/data/dataherb.js"></script>
+<script src="{{site.base_url}}/assets/js/filesize.min.js"></script>
 
 <article class="post">
 
@@ -137,20 +138,42 @@ layout: default
               <p>Preview</p>
             </div>
             <div class="message-body data-preview" id="preview-{{ data.path | slugify }}">
-              This is a preview of the first 5 rows.
+              <!-- <a id="#preview-{{ data.path | slugify }}-button" class="button">Load the data anyway ...</a> -->
+
 
             </div>
           </article>
           <script>
-            d3.csv("{{data_path}}").then(function(data) {
-              var parsedCSV = data;
-              console.log(data)
-              if (data[0]) {
-                  keys = Object.keys(data[0])
-              }
 
-              tabulate('#preview-{{ data.path | slugify }}', data.slice(0,5), keys)
-          });
+            get_filesize("{{data_path}}", function(size) {
+              console.log(
+                "{{data_path}} file transfer size: ", size
+                )
+              const loadSizeLimit = 1048576
+              if (size <= loadSizeLimit) {
+                console.log(
+                  "{{data_path}} file transfer size: ", size
+                )
+              // load file if file is small
+              loadCSVPreview("{{data_path}}", '#preview-{{ data.path | slugify }}')
+
+            } else if (size > loadSizeLimit) {
+              d3.select('#preview-{{ data.path | slugify }}')
+              .append("div")
+              .attr("class", "has-text-centered")
+              .append("a")
+              .attr("class", "button has")
+              .attr("id", "#preview-{{ data.path | slugify }}-button")
+              .attr(
+                "onclick",
+                'loadCSVPreview("{{data_path}}", "#preview-{{ data.path | slugify }}");document.getElementById("#preview-{{ data.path | slugify }}-button").style.display = "none"'
+              ).text(`Load File (Consumes ${filesize(size)})`);
+
+              // alert("The size of foo.exe is: " + size + " bytes.");
+            }
+
+            });
+
           </script>
           {% endif %}
         </div>
