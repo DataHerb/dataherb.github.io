@@ -1,6 +1,8 @@
 function tabulate(element_id, data, columns) {
 	var preview_div = d3.select(element_id).append('div').attr("class", "data-preview-table")
-    var table = preview_div.append('table')
+	var table = preview_div.append('table')
+	.attr("class", "table")
+	.attr("id", element_id.slice(1,element_id.length)+"-table")
 	var thead = table.append('thead')
 	var	tbody = table.append('tbody');
 
@@ -44,7 +46,11 @@ function loadCSVPreview(dataPath, previewId, first=0, last=5) {
 		  keys = Object.keys(data[0])
 	  }
 	  tabulate(previewId, data.slice(first,last), keys)
-  })
+  }).then(function() {
+	$(previewId+"-table").DataTable( {
+		"lengthMenu": [[5, 10, 25, 50, -1], [10, 25, 50, "All"]]
+		} );
+	})
 }
 
 function get_filesize(url, callback) {

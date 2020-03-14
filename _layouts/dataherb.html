@@ -5,6 +5,9 @@ layout: default
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="{{site.base_url}}/assets/data/dataherb.js"></script>
 <script src="{{site.base_url}}/assets/js/filesize.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 <article class="post">
 
@@ -138,8 +141,6 @@ layout: default
               <p>Preview</p>
             </div>
             <div class="message-body data-preview" id="preview-{{ data.path | slugify }}">
-              <!-- <a id="#preview-{{ data.path | slugify }}-button" class="button">Load the data anyway ...</a> -->
-
 
             </div>
           </article>
@@ -150,14 +151,15 @@ layout: default
                 "{{data_path}} file transfer size: ", size
                 )
               const loadSizeLimit = 1048576
+
               if (size <= loadSizeLimit) {
                 console.log(
                   "{{data_path}} file transfer size: ", size
                 )
               // load file if file is small
-              loadCSVPreview("{{data_path}}", '#preview-{{ data.path | slugify }}')
+              loadCSVPreview("{{data_path}}", '#preview-{{ data.path | slugify }}', first=0, last=100)
 
-            } else if (size > loadSizeLimit) {
+              } else if (size > loadSizeLimit) {
               d3.select('#preview-{{ data.path | slugify }}')
               .append("div")
               .attr("class", "has-text-centered")
@@ -166,7 +168,7 @@ layout: default
               .attr("id", "#preview-{{ data.path | slugify }}-button")
               .attr(
                 "onclick",
-                'loadCSVPreview("{{data_path}}", "#preview-{{ data.path | slugify }}");document.getElementById("#preview-{{ data.path | slugify }}-button").style.display = "none"'
+                'loadCSVPreview("{{data_path}}", "#preview-{{ data.path | slugify }}", first=0, last=100);document.getElementById("#preview-{{ data.path | slugify }}-button").style.display = "none"'
               ).text(`Load File (Consumes ${filesize(size)})`);
 
               // alert("The size of foo.exe is: " + size + " bytes.");
