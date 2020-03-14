@@ -1,7 +1,7 @@
 function tabulate(element_id, data, columns) {
 	var preview_div = d3.select(element_id).append('div').attr("class", "data-preview-table")
 	var table = preview_div.append('table')
-	.attr("class", "table")
+	.attr("class", "table is-hoverable")
 	.attr("id", element_id.slice(1,element_id.length)+"-table")
 	var thead = table.append('thead')
 	var	tbody = table.append('tbody');
@@ -36,19 +36,23 @@ function tabulate(element_id, data, columns) {
 function loadCSVPreview(dataPath, previewId, first=0, last=5) {
 	// This is a preview of the first 5 rows.
 	var preview_notify_div = d3.select(previewId).append('div').attr("class", "data-preview-table-notify")
-	preview_notify_div.append("div")
-	.attr("class", "notification")
-	.text(`This is a preview of the rows ${first} to ${last}.`)
+
 
 	d3.csv(dataPath).then(function(data) {
 	  console.log(data)
+	  last = Math.min(data.length, last)
+	  console.log(last)
+	  preview_notify_div.append("div")
+		.attr("class", "notification")
+		.text(`The file has ${data.length} rows, ${Object.keys(data[0]).length} columns. The following is a preview of the rows between ${first} and ${last}.`)
+
 	  if (data[0]) {
 		  keys = Object.keys(data[0])
 	  }
 	  tabulate(previewId, data.slice(first,last), keys)
   }).then(function() {
 	$(previewId+"-table").DataTable( {
-		"lengthMenu": [[5, 10, 25, 50, -1], [10, 25, 50, "All"]]
+		"lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
 		} );
 	})
 }

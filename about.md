@@ -36,3 +36,6 @@ DataHerb is an initiative for transparent data management in open data. To achie
 - Better APIs: [API for all datasets](/api/flora.json), ...
 - **Your ideas**
 
+## Acknowledgement
+
+1. Many of the landing page arts are from [unDraw](https://undraw.co/).
