@@ -39,3 +39,4 @@ DataHerb is an initiative for transparent data management in open data. To achie
 ## Acknowledgement
 
 1. Many of the landing page arts are from [unDraw](https://undraw.co/).
+2. The embeded terminal is modified based on an MIT Licensed project [Portfolio - Type help](https://codepen.io/jatinrao/pen/abzRLGj).
