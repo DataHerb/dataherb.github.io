@@ -272,4 +272,4 @@ jobs:
 {% endhighlight %}
 
 
-[^1]: For Spain, we only download the record PDF files. For UK, we are only collecting England for now.
+[^1]: For Spain, we only download the record PDF files. For UK, we are only collecting England for now. IT data is not being collected because [the data is open and well organized](https://github.com/pcm-dpc/COVID-19) by the Italian government.
