@@ -47,6 +47,10 @@ data:
     name: city
   - description: number of cases by the specified datetime
     name: cases
+  - description: population of the city
+    name: population
+  - description: number of cases per 100k population by the specified datetime
+    name: cases/100k pop.
   - description: date of the record update on the volksgezondheidenzorg website, only
       the date matters
     name: datetime
@@ -55,23 +59,53 @@ data:
   path: dataset/covid-19-nl.csv
   size: null
   updated_at: ''
-- description: Records of SARS-COV-2/COVID-19 Cases in UK
+- description: Records of SARS-COV-2/COVID-19 Cases in England
   fields:
   - description: alpha 2 code of the country
     name: country
   - description: local authorities in England, city, town, borough, etc.
     name: authority
-  - description: number of cases by the specified datetime, it can be a range
+  - description: number of cases by the specified datetime
     name: cases
-  - description: Lower bound of the number of cases
-    name: cases_lower
-  - description: Upper bound of the number of cases
-    name: cases_upper
   - description: datetime of the record update on the website
     name: datetime
   format: csv
-  name: SARS-COV-2/COVID-19 Cases in UK in csv format
-  path: dataset/covid-19-uk.csv
+  name: SARS-COV-2/COVID-19 Cases in England in csv format
+  path: dataset/covid-19-england.csv
+  size: null
+  updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in Scotland
+  fields:
+  - description: alpha 2 code of the country
+    name: country
+  - description: local authorities in England, city, town, borough, etc.
+    name: authority
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: datetime of the record update on the website
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in Scotland in csv format
+  path: dataset/covid-19-scotland.csv
+  size: null
+  updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in Sweden
+  fields:
+  - description: alpha 2 code of the country
+    name: country
+  - description: local authorities in England, city, town, borough, etc.
+    name: authority
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: number of cases per 100k population by the specified datetime
+    name: cases/100k pop.
+  - description: percent of cases by the specified datetime
+    name: percent
+  - description: datetime of the record update on the website
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in SE in csv format
+  path: dataset/covid-19-england.csv
   size: null
   updated_at: ''
 - description: Records of SARS-COV-2/COVID-19 Cases in FR
@@ -86,7 +120,7 @@ data:
   - description: datetime of the record update on the website
     name: datetime
   format: csv
-  name: SARS-COV-2/COVID-19 Cases in UK in csv format
+  name: SARS-COV-2/COVID-19 Cases in FR in csv format
   path: dataset/covid-19-fr.csv
   size: null
   updated_at: ''
