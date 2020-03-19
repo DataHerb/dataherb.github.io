@@ -105,7 +105,7 @@ data:
     name: datetime
   format: csv
   name: SARS-COV-2/COVID-19 Cases in SE in csv format
-  path: dataset/covid-19-england.csv
+  path: dataset/covid-19-se.csv
   size: null
   updated_at: ''
 - description: Records of SARS-COV-2/COVID-19 Cases in FR
@@ -124,6 +124,23 @@ data:
   path: dataset/covid-19-fr.csv
   size: null
   updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in PL
+  fields:
+  - description: alpha 2 code of the country
+    name: country
+  - description: provinces in PL or sum as the total
+    name: province
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: number of deaths by the specified datetime
+    name: deaths
+  - description: datetime of the record update on the website
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in PL in csv format
+  path: dataset/covid-19-pl.csv
+  size: null
+  updated_at: ''
 description: SARS-COV-2/COVID-19 Cases in Europe by Country, State, and Date
 name: SARS-COV-2/COVID-19 Cases in Europe
 references:
@@ -135,6 +152,8 @@ references:
   name: volksgezondheidenzorg.info in NL
 - link: https://www.gov.uk/government/publications/coronavirus-covid-19-number-of-cases-in-england/coronavirus-covid-19-number-of-cases-in-england
   name: Public Health England
+- link: https://www.gov.pl/web/koronawirus/wykaz-zarazen-koronawirusem-sars-cov-2
+  name: Serwis Rzeczypospolitej Polskiej
 repository: covid19-eu-zh/covid19-eu-data
 tags:
 - Health
