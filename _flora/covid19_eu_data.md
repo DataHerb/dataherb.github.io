@@ -141,6 +141,36 @@ data:
   path: dataset/covid-19-pl.csv
   size: null
   updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in CZ
+  fields:
+  - description: alpha 2 code of the country
+    name: country
+  - description: regions in CZ or sum as the total
+    name: authority
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: datetime of the record update on the website
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in CZ in csv format
+  path: dataset/covid-19-cz.csv
+  size: null
+  updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in EU from ECDC
+  fields:
+  - description: alpha 2 code of the country
+    name: country
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: number of deaths by the specified datetime
+    name: deaths
+  - description: datetime of the record update on the website
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases From ECDC
+  path: dataset/covid-19-ecdc.csv
+  size: null
+  updated_at: ''
 description: SARS-COV-2/COVID-19 Cases in Europe by Country, State, and Date
 name: SARS-COV-2/COVID-19 Cases in Europe
 references:
@@ -154,6 +184,10 @@ references:
   name: Public Health England
 - link: https://www.gov.pl/web/koronawirus/wykaz-zarazen-koronawirusem-sars-cov-2
   name: Serwis Rzeczypospolitej Polskiej
+- link: https://onemocneni-aktualne.mzcr.cz/covid-19
+  name: "P\u0159ehled situace v \u010CR: COVID-19 - CZ"
+- link: https://www.ecdc.europa.eu/en/cases-2019-ncov-eueea
+  name: Situation update for the EU/EEA and the UK, as of 19 March 2020
 repository: covid19-eu-zh/covid19-eu-data
 tags:
 - Health
