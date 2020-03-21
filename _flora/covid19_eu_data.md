@@ -171,6 +171,30 @@ data:
   path: dataset/covid-19-ecdc.csv
   size: null
   updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in IT
+  fields:
+  - description: alpha 2 code of the country (IT)
+    name: country
+  - description: regions in IT, corresponds to NUTS 2
+    missing:
+    - description: unassigned indicates the cases are not allocated to the provinces
+      value: unassigned
+    name: region
+  - description: provinces in IT, corresponds to NUTS 3
+    missing:
+    - description: Missing value means the cases are for higher levels, most like
+        to be sum of all cases in the country
+      value: ''
+    name: province
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: datetime of the record update on the website
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in IT
+  path: dataset/covid-19-it.csv
+  size: null
+  updated_at: ''
 description: SARS-COV-2/COVID-19 Cases in Europe by Country, State, and Date
 name: SARS-COV-2/COVID-19 Cases in Europe
 references:
@@ -188,6 +212,8 @@ references:
   name: "P\u0159ehled situace v \u010CR: COVID-19 - CZ"
 - link: https://www.ecdc.europa.eu/en/cases-2019-ncov-eueea
   name: Situation update for the EU/EEA and the UK, as of 19 March 2020
+- link: https://github.com/pcm-dpc/COVID-19
+  name: pcm-dpc/COVID-19 on GitHub
 repository: covid19-eu-zh/covid19-eu-data
 tags:
 - Health
