@@ -28,11 +28,34 @@ The [covid19-eu-zh/covid19-eu-data](https://github.com/covid19-eu-zh/covid19-eu-
 
 ## The Dataset
 
-The dataset is being updated hourly. We are collecting data for AT, DE, ES, FR, NL, UK.[^1]
+The dataset is being updated regularly.[^1]
+
+![](https://img.shields.io/github/last-commit/covid19-eu-zh/covid19-eu-data/master) ![](https://img.shields.io/github/commit-activity/w/covid19-eu-zh/covid19-eu-data)
+
+The following is a table showing the update status and data sources.
+
+| Country | Status | Data Source |
+| ------------- | ------------- | --- |
+| AT | ![CI Download AT Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20AT%20Data/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-sozialministerium.at-informational)](https://www.sozialministerium.at/Informationen-zum-Coronavirus/Neuartiges-Coronavirus-(2019-nCov).html) |
+| BE | ![CI Download BE PDF](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20BE%20PDF/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-epidemio.wiv--isp.be-informational)](https://epidemio.wiv-isp.be/ID/Pages/2019-nCoV_epidemiological_situation.aspx) |
+| CH | ![CI Download CH Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20CH%20Data/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-epidemio.wiv--daenuprobst/covid19--cases--switzerland-informational)](https://github.com/daenuprobst/covid19-cases-switzerland) |
+| CZ | ![CI Download CZ Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20CZ%20Data/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-onemocneni--aktualne.mzcr.cz-informational)](https://onemocneni-aktualne.mzcr.cz/covid-19) |
+| DE | ![CI Download DE SARS-COV-2 Cases from RKI](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20DE%20SARS-COV-2%20Cases%20from%20RKI/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-rki.de-informational)](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) |
+| DK  | ![CI Download DK PDF](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20DK%20PDF/badge.svg)  | [![](https://img.shields.io/badge/Data%20Source-ssi.dk-informational)](https://www.ssi.dk/aktuelt/sygdomsudbrud/coronavirus/covid-19-i-danmark-epidemiologisk-overvaagningsrapport) |
+| ES  | ![CI Download ES PDF Files](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20ES%20PDF%20Files/badge.svg)  | [![](https://img.shields.io/badge/Data%20Source-mscbs.gob.es-informational)](http://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/situacionActual.htm) |
+| FR  | ![CI Download FR Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20FR%20Data/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-santepubliquefrance.fr-informational)](https://www.santepubliquefrance.fr/maladies-et-traumatismes/maladies-et-infections-respiratoires/infection-a-coronavirus/articles/infection-au-nouveau-coronavirus-sars-cov-2-covid-19-france-et-monde) |
+| IT | ![CI Download IT Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20IT%20Data/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-pcm--dpc/COVID--19-informational)](https://github.com/pcm-dpc/COVID-19/blob/master/dati-json/dpc-covid19-ita-province-latest.json) |
+| NL | ![CI Download NL SARS-COV-2 Cases from volksgezondheidenzorg](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20NL%20SARS-COV-2%20Cases%20from%20volksgezondheidenzorg/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-volksgezondheidenzorg.info-informational)](https://www.volksgezondheidenzorg.info/onderwerp/infectieziekten/regionaal-internationaal/coronavirus-covid-19#node-coronavirus-covid-19-meldingen) |
+| NO | ![CI Download NO Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20NO%20Data/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-fhi.no-informational)](https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/) |
+| PL | ![CI Download PL Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20PL%20Data/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-gov.pl-informational)](https://www.gov.pl/web/koronawirus/wykaz-zarazen-koronawirusem-sars-cov-2) |
+| SE | ![CI Download SE](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20SE/badge.svg) | [![](https://img.shields.io/badge/Data%20Source-folkhalsomyndigheten.se-informational)](https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/aktuellt-epidemiologiskt-lage/)  |
+| UK | ![CI Download England Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20England%20Data/badge.svg)  ![CI Download Scotland Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20Scotland%20Data/badge.svg)  ![CI Download Wales Data](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20Wales%20Data/badge.svg)  | [![](https://img.shields.io/badge/Data%20Source-official_arcgis-informational)](https://www.arcgis.com/sharing/rest/content/items/b684319181f94875a6879bbc833ca3a6/data) [![](https://img.shields.io/badge/Data%20Source-gov.scot-informational)](https://www.gov.scot/coronavirus-covid-19/) [![](https://img.shields.io/badge/Data%20Source-phw.nhs.wales-informational)](https://phw.nhs.wales/news/public-health-wales-statement-on-novel-coronavirus-outbreak/) [![](https://img.shields.io/badge/Data%20Source-publichealth.hscni.net-informational)](https://www.publichealth.hscni.net/news/covid-19-coronavirus#situation-in-northern-ireland) |
+| EU(ECDC) | ![CI Download All EU from ECDC](https://github.com/covid19-eu-zh/covid19-eu-data/workflows/CI%20Download%20All%20EU%20from%20ECDC/badge.svg) |  [![](https://img.shields.io/badge/Data%20Source-ecdc.europa.eu-informational)](https://www.ecdc.europa.eu/en/cases-2019-ncov-eueea) |
+
 
 ### A Demo: Confirmed Cases in Germany
 
-
+The data can be directly loaded into your applications. Here is a simple demo using the Germany data file. Please refer to [`/flora/covid19_eu_data/` (link to the dataset)](/flora/covid19_eu_data/) for the data files of all available countries.
 
 <script>
 function diff(ary) {
@@ -176,21 +199,18 @@ The structure of the project is as follows.
 ├── dataset     #where the data files lives
 ├── documents   #where the raw data and files lives
 ├── now.json    #zeit now setup for a FAAS service
-└── scripts     #scripts to download and aggregate data
+├── scripts     #scripts to download and aggregate data
+└── .dataherb   #where the metadata lives
 ```
 
 ### Scripts
 
-We have a python script for each country for more flexible schedules of each country. We are using classes from `utils.py` so that the scripts all have similar structure.
+We have a python script for each country for more flexible schedules of each country. We are using classes from `utils.py` so that the scripts have similar structures.
 
 ```
 scripts
 ├── download_at.py
-├── download_de.py
-├── download_es.py
-├── download_fr.py
-├── download_nl.py
-├── download_uk.py
+├── ...
 ├── requirements.txt
 └── utils.py
 ```
@@ -202,14 +222,10 @@ The dataset folder contains the full dataset of each country and the daily pdate
 ```
 dataset
 ├── covid-19-at.csv
-├── covid-19-de.csv
-├── covid-19-nl.csv
-├── covid-19-uk.csv
+├── ...
 └── daily
     ├── at
-    ├── de
-    ├── nl
-    └── uk
+    ├── ...
 ```
 
 ## GitHub Actions
@@ -271,5 +287,14 @@ jobs:
           github_token: {% raw  %}${{ secrets.GITHUB_TOKEN }}{% endraw  %}
 {% endhighlight %}
 
+## And Much More
 
-[^1]: For Spain, we only download the record PDF files. For UK, we are only collecting England for now. IT data is not being collected because [the data is open and well organized](https://github.com/pcm-dpc/COVID-19) by the Italian government.
+We run a **Telegram Channel (in Chinese)**: [新冠肺炎欧洲中文臺](https://t.me/s/covid19_eu_zh_c)
+
+[![Chat](http://img.shields.io/badge/telegram-covid19__eu__zh__c-blue.svg)](https://t.me/s/covid19_eu_zh_c)
+
+**If you would like to help or track the progress of this project**, checkout our roadmap.
+
+[![](https://img.shields.io/badge/roadmap-data--pipeline-blueviolet)](https://github.com/orgs/covid19-eu-zh/projects/1)
+
+[^1]: Some countriers, such as Spain, we only download the record PDF files. Some countries, such as Italy, [provides open and well organized data](https://github.com/pcm-dpc/COVID-19) by the government.
