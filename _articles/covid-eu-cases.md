@@ -55,14 +55,14 @@ function onlyUnique(value, index, self) {
 
 
 function uniqueRegions(de_data) {
-  return de_data.map(row => row.state ).filter(onlyUnique)
+  return de_data.map(row => row.nuts_1 ).filter(onlyUnique)
 }
 
 function regionTraces (de_data, keyword) {
 
-  de_total_cases = de_data.filter(row => (row.state === keyword) && (new Date(row.datetime).getHours() == 15) ).map(row => row.cases);
+  de_total_cases = de_data.filter(row => (row.nuts_1 === keyword) && (new Date(row.datetime).getHours() == 15) ).map(row => row.cases);
 
-  de_total_datetime = de_data.filter(row => (row.state === keyword) && (new Date(row.datetime).getHours() == 15)).map(row => row.datetime);
+  de_total_datetime = de_data.filter(row => (row.nuts_1 === keyword) && (new Date(row.datetime).getHours() == 15)).map(row => row.datetime);
   de_total_datetime_diff = diff(de_total_datetime.map(dt => new Date(dt))).map(dt => dt/(1000*60*60))
   de_total_cases_diff = diff(de_total_cases)
 
@@ -78,7 +78,7 @@ Plotly.d3.csv(
 
 regions = uniqueRegions(de_data)
 regions = regions.filter(el => (el != "sum"))
-regions.unshift("sum")
+// regions.unshift("sum")
 console.log(
   "all regions in germany: ",
   regions
@@ -125,7 +125,7 @@ function makePlot(region) {
   Plotly.newPlot("de-cases", data, layout);
 }
 
-makePlot("sum")
+makePlot("Rheinland-Pfalz")
 
 
 var innerContainer = document.querySelector('[data-num="0"'),
