@@ -55,7 +55,7 @@ The following is a table showing the update status and data sources.
 
 ### A Demo: Confirmed Cases in Germany
 
-The data can be directly loaded into your applications. Here is a simple demo using the Germany data file. Please refer to [`/flora/covid19_eu_data/` (link to the dataset)](/flora/covid19_eu_data/) for the data files of all available countries.
+The data can be directly loaded into your applications. Here is a simple demo using the data file for Germany. Please refer to [`/flora/covid19_eu_data/` (link to the dataset)](/flora/covid19_eu_data/) for the data files of all available countries.
 
 <script>
 function diff(ary) {
@@ -188,6 +188,39 @@ regionSelector.addEventListener('change', updateRegion, false);
 
 
 
+<div id="de-cases-stacked"></div>
+
+<script>
+
+Plotly.d3.csv(
+  de_url, (err, de_data) => {
+    regions = uniqueRegions(de_data)
+
+    var region_traces = regions.map(
+      region => {
+          de_total = regionTraces(de_data, region)
+          return {
+            x: de_total["datetime"],
+            y: de_total["cases"],
+            stackgroup: 'DE',
+            name: `${region}`
+          }
+      }
+    )
+
+    var layout = {
+      title: `SARS-COV-2 Confirmed Cases in Germany`,
+      yaxis: {title: 'Total Confirmed Cases'},
+      legend: {"orientation": "h"}
+    };
+
+    Plotly.newPlot('de-cases-stacked', region_traces, layout);
+
+  }
+)
+
+
+</script>
 
 ## Data Collection
 
@@ -293,8 +326,8 @@ We run a **Telegram Channel (in Chinese)**: [新冠肺炎欧洲中文臺](https:
 
 [![Chat](http://img.shields.io/badge/telegram-covid19__eu__zh__c-blue.svg)](https://t.me/s/covid19_eu_zh_c)
 
-**If you would like to help or track the progress of this project**, checkout our roadmap.
+**If you would like to help or track the progress of this project**, check out our roadmap.
 
 [![](https://img.shields.io/badge/roadmap-data--pipeline-blueviolet)](https://github.com/orgs/covid19-eu-zh/projects/1)
 
-[^1]: Some countriers, such as Spain, we only download the record PDF files. Some countries, such as Italy, [provides open and well organized data](https://github.com/pcm-dpc/COVID-19) by the government.
+[^1]: Some countries, such as Spain, we only download the record PDF files. Some countries, such as Italy, [provides open and well-organized data](https://github.com/pcm-dpc/COVID-19) by the government.
