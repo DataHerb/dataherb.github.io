@@ -195,6 +195,21 @@ data:
   path: dataset/covid-19-it.csv
   size: null
   updated_at: ''
+- description: Records of SARS-COV-2/COVID-19 Cases in Norway
+  fields:
+  - description: alpha 2 code of the country (NO)
+    name: country
+  - description: ounty in Norway, corresponds to NUTS 3
+    name: county
+  - description: number of cases by the specified datetime
+    name: cases
+  - description: datetime of the record update on the website
+    name: datetime
+  format: csv
+  name: SARS-COV-2/COVID-19 Cases in NO
+  path: dataset/covid-19-no.csv
+  size: null
+  updated_at: ''
 description: SARS-COV-2/COVID-19 Cases in Europe by Country, State, and Date
 name: SARS-COV-2/COVID-19 Cases in Europe
 references:
@@ -214,6 +229,8 @@ references:
   name: Situation update for the EU/EEA and the UK, as of 19 March 2020
 - link: https://github.com/pcm-dpc/COVID-19
   name: pcm-dpc/COVID-19 on GitHub
+- link: https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/
+  name: Daily reports about coronavirus disease (COVID-19)
 repository: covid19-eu-zh/covid19-eu-data
 tags:
 - Health
