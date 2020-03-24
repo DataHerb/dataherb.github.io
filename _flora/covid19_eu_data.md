@@ -121,6 +121,9 @@ data:
   - description: alpha 2 code of the country
     name: country
   - description: local authorities in Wales
+    missing:
+    - description: Not yet assigned these cases to local authorities
+      value: To be confirmed
     name: nuts_3
   - description: number of cases by the specified datetime
     name: cases
