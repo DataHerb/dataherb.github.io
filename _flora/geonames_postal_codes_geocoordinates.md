@@ -15,9 +15,9 @@ data:
   - description: longitude of the postal code
     name: longitude
   format: csv
-  path: dataset/postal_codes_and_coordinates.csv
+  path: postal_codes_and_coordinates.csv
   size: 23M
-  updated_at: '2020-02-13'
+  updated_at: '2020-04-20'
 - fields:
   - description: alpha 2 country code the postal code belongs
     name: country_code
@@ -28,9 +28,9 @@ data:
   - description: longitude of the postal code
     name: longitude
   format: json
-  path: dataset/postal_codes_and_coordinates.json
+  path: postal_codes_and_coordinates.json
   size: 69M
-  updated_at: '2020-02-13'
+  updated_at: '2020-04-20'
 description: 'Postal codes and their geocoordinates parsed from geonames data. The
   dataset covers the following countries: AD, AR, AS, AT, AU, AX, AZ, BD, BE, BG,
   BM, BR, BY, CA, CH, CL, CO, CR, CZ, DE, DK, DO, DZ, EE, ES, FI, FM, FO, FR, GB,
