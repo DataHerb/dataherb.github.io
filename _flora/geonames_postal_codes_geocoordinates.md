@@ -15,7 +15,7 @@ data:
   - description: longitude of the postal code
     name: longitude
   format: csv
-  path: postal_codes_and_coordinates.csv
+  path: dataset/postal_codes_and_coordinates.csv
   size: 23M
   updated_at: '2020-04-20'
 - fields:
@@ -28,7 +28,7 @@ data:
   - description: longitude of the postal code
     name: longitude
   format: json
-  path: postal_codes_and_coordinates.json
+  path: dataset/postal_codes_and_coordinates.json
   size: 69M
   updated_at: '2020-04-20'
 description: 'Postal codes and their geocoordinates parsed from geonames data. The
