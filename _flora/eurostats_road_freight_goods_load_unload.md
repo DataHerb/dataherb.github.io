@@ -1,5 +1,5 @@
 ---
-title: Eurostats: International quarterly road freight transport - goods loaded/unloaded in reporting country
+title: International quarterly road freight transport - goods loaded/unloaded in reporting country by Eurostats
 herb_id: eurostats_road_freight_goods_load_unload
 contributors:
 - github: emptymalei
@@ -83,8 +83,8 @@ data:
   updated_at: ''
 description: 'Eurostats: International quarterly road freight transport - goods loaded/unloaded
   in reporting country, by type of transport (1 000 t, Mio Tkm) (road_go_iq_ltt/road_go_iq_utt)'
-name: 'Eurostats: International quarterly road freight transport - goods loaded/unloaded
-  in reporting country'
+name: International quarterly road freight transport - goods loaded/unloaded in reporting
+  country by Eurostats
 references:
 - link: https://ec.europa.eu/eurostat/data/database?node_code=road_go_iq_ltt
   name: 'Raw Data: International quarterly road freight transport - goods loaded in
