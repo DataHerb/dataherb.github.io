@@ -3,7 +3,9 @@ title_fancy: The DataHerb Index
 author: "DataHerb"
 email: hi@leima.is
 description: > # this means to ignore newlines until "twitter_username:"
-  Clean datasets to boost your data science/analysis project
+  A static, forkable data catalog and explorer for your organization's open data
+explorer_url: https://dataherb.github.io/dataherb-explorer/
+explorer_repo: https://github.com/DataHerb/dataherb-explorer
 baseurl: ''
 # social links
 twitter_username: jekyllrb
