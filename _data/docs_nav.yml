@@ -1,0 +1,24 @@
+- title: Start
+  items:
+    - title: Get started
+      url: /get-started/
+    - title: Add a dataset
+      url: /add/
+    - title: Job status
+      url: /job-status/
+- title: Reference
+  items:
+    - title: dataherb CLI
+      url: /ecosystem/dataherb-python
+    - title: Ecosystem
+      url: /ecosystem/
+    - title: Configuration
+      url: https://github.com/DataHerb/dataherb-explorer/blob/main/docs/config.md
+    - title: Architecture
+      url: https://github.com/DataHerb/dataherb-explorer/blob/main/docs/architecture.md
+- title: Project
+  items:
+    - title: About
+      url: /about/
+    - title: Community
+      url: /community/

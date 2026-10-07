@@ -1,9 +1,9 @@
 ---
-layout: page
-title: DataHerb Python Package
+layout: doc
+title: dataherb CLI
+description: The Python package that drafts metadata, builds catalogs and reports job status.
 permalink: /ecosystem/dataherb-python
-exclude: true
-comments: true
+next: {url: /ecosystem/, title: Ecosystem}
 ---
 
 The `dataherb` command-line tool creates dataset metadata, builds the DataHerb Explorer site, and reports job status. The source is [DataHerb/dataherb-python](https://github.com/DataHerb/dataherb-python).

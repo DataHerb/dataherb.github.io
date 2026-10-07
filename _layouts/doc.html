@@ -1,0 +1,36 @@
+---
+layout: base
+---
+<div class="wrap docs">
+  <aside class="docs-nav" aria-label="Documentation">
+    {%- for group in site.data.docs_nav -%}
+    <h4>{{ group.title }}</h4>
+    <ul>
+      {%- for item in group.items -%}
+      {%- assign href = item.url -%}
+      {%- unless item.url contains '://' -%}{%- assign href = item.url | relative_url -%}{%- endunless -%}
+      <li><a href="{{ href }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+    {%- endfor -%}
+  </aside>
+  <article>
+    <header class="doc-head">
+      <h1>{{ page.title | escape }}</h1>
+      {%- if page.description -%}<p>{{ page.description | escape }}</p>{%- endif -%}
+    </header>
+    <div class="prose">
+      {{ content }}
+    </div>
+    <footer class="doc-foot">
+      <a href="https://github.com/DataHerb/dataherb.github.io/edit/master/{{ page.path }}">Edit this page on GitHub</a>
+      {%- if page.next -%}<a href="{{ page.next.url | relative_url }}">Next: {{ page.next.title }} &rarr;</a>{%- endif -%}
+    </footer>
+    {%- if page.comments == true -%}
+    <div class="comments" id="comments">
+      <script src="https://utteranc.es/client.js" repo="DataHerb/comments" issue-term="pathname" theme="preferred-color-scheme" crossorigin="anonymous" async></script>
+    </div>
+    {%- endif -%}
+  </article>
+  <aside class="toc" id="toc" aria-label="On this page"><h4>On this page</h4></aside>
+</div>

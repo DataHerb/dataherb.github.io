@@ -1,9 +1,8 @@
 ---
-layout: page
-title: About
+layout: doc
+title: About DataHerb
+description: A metadata-driven data catalog that never takes your data.
 permalink: /about/
-exclude: true
-comments: true
 ---
 
 DataHerb is a **metadata-driven** data catalog. Version 2 is [DataHerb Explorer]({{ site.explorer_repo }}): a catalog and explorer for an organization's open data that is just a static website, configured by one YAML file and deployed on GitHub Pages or S3.
@@ -14,16 +13,14 @@ DataHerb does **not** take your data. Datasets stay where their owners keep them
 
 A scheduled GitHub Actions job runs `dataherb catalog build`, which reads `dataherb.config.yml` and the catalog and writes a static site. In the browser, DuckDB-WASM reads the data files directly for previews, SQL and charts, and pipelines report their runs as status files the site reads live. There is no server and no database.
 
-<figure markdown="1">
-![]({{ "/assets/images/v2/catalog.png" | relative_url }})
-</figure>
+![The DataHerb Explorer catalog]({{ "/assets/images/v2/catalog.png" | relative_url }})
 
 ## How to Contribute
 
 - Run DataHerb Explorer for your team: [Get started]({{ "/get-started/" | relative_url }}).
 - Add an open dataset to the public catalog: [Add a dataset]({{ "/add/" | relative_url }}).
 - Write a short story about the story behind your dataset and submit it to [DataHerb Articles]({{ "/articles/" | relative_url }}).
-- Help build a better DataHerb: [GitHub Organization](https://github.com/dataherb); [Leave a comment](#comments)
+- Help build a better DataHerb on [GitHub](https://github.com/dataherb).
 
 ## What Changed in v2
 
@@ -34,7 +31,16 @@ A scheduled GitHub Actions job runs `dataherb catalog build`, which reads `datah
 - The `dataherb` CLI gained `dataherb catalog` and `dataherb status` commands and installs with uv.
 - v1 metadata (`dataherb.json`, `.dataherb/metadata.yml`) is still read. The [v1 Flora]({{ "/flora/" | relative_url }}) stays online for reference.
 
+### From v1 to v2
+
+| v1 | v2 |
+|---|---|
+| `dataherb-flora` (a YAML listing per dataset) | `catalog/` folder of Markdown entries, plus S3, HTTP and local sources and discovery |
+| `dataherb-metadata-aggregator` | `dataherb catalog build` (aggregation, validation, linting) |
+| This Jekyll site's Flora pages | The explorer's static app with preview, SQL explorer and status |
+| `dataherb create` / `upload` | `dataherb create` infers the schema; `dataherb catalog` and `dataherb status` added |
+| `dataherb.json`, `.dataherb/metadata.yml` | Read as is; v2 adds owner, tags, license, classification, update frequency, status job and related datasets |
+
 ## Acknowledgement
 
-1. Many of the landing page arts are from [unDraw](https://undraw.co/).
-2. The embeded terminal is modified based on an MIT Licensed project [Portfolio - Type help](https://codepen.io/jatinrao/pen/abzRLGj).
+The v1 Flora pages use art from [unDraw](https://undraw.co/) and a terminal adapted from the MIT licensed [Portfolio - Type help](https://codepen.io/jatinrao/pen/abzRLGj).

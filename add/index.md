@@ -1,9 +1,9 @@
 ---
-layout: page
-title: Add a Dataset
+layout: doc
+title: Add a dataset
+description: Describe your data, put it where the catalog can read it, and list it with one Markdown file.
 permalink: /add/
-exclude: true
-comments: true
+next: {url: /job-status/, title: Job status}
 ---
 
 A dataset is a folder of data files plus a metadata file (`dataherb.yml`) next to them. The folder can be a git repository, an S3 prefix, a folder on a web server, or a folder in the explorer repository. Listing it in a catalog takes three steps.
@@ -60,4 +60,3 @@ The full guide is [docs/adding-datasets.md]({{ site.explorer_repo }}/blob/main/d
 
 The [public DataHerb Explorer]({{ site.explorer_url }}) lists the DataHerb `dataset-*` repositories. To add an open dataset, open a pull request on [DataHerb/dataherb-explorer]({{ site.explorer_repo }}) with a new `catalog/<id>.md`.
 
-> The v1 flow (a `.dataherb` folder plus an entry in dataherb-flora) is kept for reference: [create a repository]({{ "/add/create-repo" | relative_url }}), [link it with the flora]({{ "/add/link-repo-with-dataherb" | relative_url }}).

@@ -1,9 +1,8 @@
 ---
-layout: page
+layout: doc
 title: Ecosystem
+description: The pieces that make up DataHerb.
 permalink: /ecosystem/
-exclude: true
-comments: true
 ---
 
 1. [DataHerb Explorer]({{ site.explorer_repo }}): the static catalog and explorer you fork and configure with `dataherb.config.yml`. [Live demo]({{ site.explorer_url }}).

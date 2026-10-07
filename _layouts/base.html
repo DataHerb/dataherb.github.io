@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{%- include v2/head.html -%}
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  {%- include v2/header.html -%}
+  <main id="main">
+    {{ content }}
+  </main>
+  {%- include v2/footer.html -%}
+</body>
+</html>

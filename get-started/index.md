@@ -1,10 +1,9 @@
 ---
-layout: page
-title: Get Started
-description: Run your own DataHerb Explorer
+layout: doc
+title: Get started
+description: Run DataHerb Explorer locally, then fork it and make it your organization's catalog.
 permalink: /get-started/
-exclude: true
-comments: true
+next: {url: /add/, title: Add a dataset}
 ---
 
 DataHerb v2 is [DataHerb Explorer]({{ site.explorer_repo }}): a data catalog and explorer for your organization's open data that is just a static website. Fork it, point one YAML file at your git repositories and S3 buckets, and publish it on GitHub Pages (or S3/CloudFront). See the [live demo]({{ site.explorer_url }}).
@@ -59,16 +58,8 @@ catalog:
 
 ## Job status
 
-Pipelines report their runs as small JSON files following the [`dataherb.status/v1` spec]({{ site.explorer_repo }}/blob/main/docs/job-status-spec.md): a `latest.json` per job plus one file per run. The explorer reads them in the browser and shows which jobs are failing, stuck or stale.
-
-```bash
-dataherb status emit --target s3://bucket/_dataherb/status/ \
-  --job-id my-crawler --status success --expected-interval P1D
-dataherb status check   # exit 1 if any job is failing, stuck or stale
-```
-
-Ready-made emitters exist for [Airflow]({{ site.explorer_repo }}/blob/main/examples/airflow/dataherb_status.py), [GitHub Actions]({{ site.explorer_repo }}/blob/main/examples/github-actions/crawler.yml) and [shell]({{ site.explorer_repo }}/blob/main/examples/shell/emit-status.sh).
+Pipelines report each run as a small JSON file, and the explorer shows which jobs are failing, stuck or stale. See [Job status]({{ "/job-status/" | relative_url }}) for the file format and emitters.
 
 ## How the pieces fit
 
-Read the [architecture notes]({{ site.explorer_repo }}/blob/main/docs/architecture.md). The builder and the JSON Schemas live in the [`dataherb` Python package]({{ "/ecosystem/dataherb-python" | relative_url }}).
+Read the [architecture notes]({{ site.explorer_repo }}/blob/main/docs/architecture.md). The builder and the JSON Schemas live in the [`dataherb` CLI]({{ "/ecosystem/dataherb-python" | relative_url }}).

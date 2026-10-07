@@ -1,121 +1,35 @@
 ---
-layout: default
+layout: base
 ---
-
-<article class="post">
-
-  <header class="post-header">
-    <h1 class="post-title has-text-centered is-size-1" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta has-text-centered">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.authors -%}
-        • {% for author in page.authors %}
-        {% assign author_db = site.data.authors[author.id] %}
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author_db.name }}</span></span>
-        {% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      {%- endif -%}
-      {% if page.category %}
-       • <span style="font-style: regular;">{</span>{% for cate in page.category %}
-       <span style="padding-right: 0.2em;padding-left: 0.2em;"><a href="{{ site.url }}{{ site.baseurl }}/wiki/#{{ cate | slugify }}">⸢{{ cate }}⸥</a></span>
-       {% endfor %}
-       }
-      {% endif %}
-      {% if page.tags %}
-       • <span style="font-style: regular;">[</span>{% for tag in page.tags %}
-       <span style="padding-right: 0.2em;padding-left: 0.2em;"><a href="{{ site.url }}{{ site.baseurl }}/articles/#{{ tag | slugify }}">#{{ tag }}</a></span>
-       {% endfor %}
-       ]
-      {% endif %}
-    </p>
+<article class="wrap article">
+  <nav class="crumbs"><a href="{{ "/articles/" | relative_url }}">Articles</a> <span>/</span> {{ page.date | date: "%b %-d, %Y" }}</nav>
+  <header class="article-head">
+    <h1>{{ page.title }}</h1>
+    {%- if page.subtitle -%}<p class="lead">{{ page.subtitle }}</p>{%- endif -%}
+    <p class="meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.authors %} &middot; {% for a in page.authors %}{{ site.data.authors[a.id].name | default: a.id }}{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}{% if page.tag %} &middot; {{ page.tag | join: ", " }}{% endif %}</p>
   </header>
-
-  <div class="columns">
-    <div class="column is-8">
-
-
-  {% if page.summary %}
-  <div class="is-divider" data-content="SUMMARY"></div>
-        <div class="notification is-light">
-          <p>
-            {{ page.summary }}
-          </p>
-        </div>
-  {% endif %}
-
-  <div class="is-divider" data-content="ARTICLE"></div>
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
+  <div class="article-grid">
+    <div class="prose">
+      {%- if page.summary -%}<blockquote><p><strong>Summary.</strong> {{ page.summary }}</p></blockquote>{%- endif -%}
+      {{ content }}
     </div>
-    <div class="column is-4">
-
-      {% if page.authors %}
-      <div class="is-divider" data-content="AUTHORS"></div>
-        {% for author in page.authors %}
-          {% assign author_db = site.data.authors[author.id] %}
-              <div class="box is-size-7">
-                <article class="media">
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong>{{ author_db.name }}</strong>
-                        {% if author_db.github %}
-                          <a href="https://github.com/{{author_db.github}}"><i class="fab fa-github-square"></i></a>
-                        {% endif %}
-                        <br>
-                        {{author_db.description}}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </div>
-        {% endfor %}
-      {% endif %}
-      {% if page.dataset %}
-        <div class="is-divider" data-content="DATASET"></div>
-          <article class="message is-warning">
-            <div class="message-header">
-              <p>Dataset:</p>
-            </div>
-            <div class="message-body">
-              <ol>
-              {% for ref in page.dataset %}
-                <li><a href="{{ site.url }}{{ site.baseurl }}/flora/{{ ref.id }}" style="text-decoration:none;">DataHerb ID: {{ ref.id }}</a></li>
-              {% endfor %}
-              </ol>
-            </div>
-          </article>
-      {% endif %}
-      {% if page.references %}
-      <div class="is-divider" data-content="REFERENCES"></div>
-        <article class="message">
-          <div class="message-header">
-            <p>References:</p>
-          </div>
-          <div class="message-body">
-            <ol>
-            {% for ref in page.references %}
-              <li><a href="{{ ref.link }}" style="text-decoration:none;">{{ ref.name }}</a></li>
-            {% endfor %}
-            </ol>
-          </div>
-        </article>
-    {% endif %}
-    {% include utterances-comments.html %}
-    </div>
+    <aside class="article-side">
+      {%- if page.authors -%}
+      <div class="card"><h3 class="h-xs">Authors</h3>
+        {%- for a in page.authors -%}{%- assign au = site.data.authors[a.id] -%}
+        <p><strong>{{ au.name | default: a.id }}</strong>{% if au.github %} &middot; <a href="https://github.com/{{ au.github }}">GitHub</a>{% endif %}{% if au.description %}<br><span class="muted">{{ au.description }}</span>{% endif %}</p>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+      {%- if page.dataset -%}
+      <div class="card"><h3 class="h-xs">Datasets</h3><ul class="plain">{% for d in page.dataset %}<li><a href="{{ "/flora/" | append: d.id | append: "/" | relative_url }}">{{ d.id }}</a></li>{% endfor %}</ul></div>
+      {%- endif -%}
+      {%- if page.references -%}
+      <div class="card"><h3 class="h-xs">References</h3><ul class="plain">{% for r in page.references %}<li>{% if r.link %}<a href="{{ r.link }}">{{ r.name }}</a>{% else %}{{ r.name }}{% endif %}</li>{% endfor %}</ul></div>
+      {%- endif -%}
+    </aside>
   </div>
-
-
-
-
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-
-{% include pagination.html %}
-
-
+  {%- if page.comments == true -%}
+  <div class="comments" id="comments"><script src="https://utteranc.es/client.js" repo="DataHerb/comments" issue-term="pathname" theme="preferred-color-scheme" crossorigin="anonymous" async></script></div>
+  {%- endif -%}
 </article>
