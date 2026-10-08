@@ -1,0 +1,224 @@
+---
+layout: base
+title: DataHerb
+description: A static, forkable data catalog and explorer for your organization's open data. No backend.
+---
+{%- assign img = "/assets/images/v2/" | relative_url -%}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <a class="eyebrow" href="{{ "/about/#what-changed-in-v2" | relative_url }}">New: DataHerb v2 is a static explorer &rarr;</a>
+      <h1>Your organization's data catalog, <em>as a static site.</em></h1>
+      <p class="lead">Fork DataHerb Explorer, point one YAML file at your git repositories and S3 buckets, and publish a searchable catalog with in-browser SQL and live job status. No server, no database.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{ site.explorer_url }}">Open the live demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="{{ "/get-started/" | relative_url }}">Get started</a>
+      </div>
+      <div class="cmd" aria-label="Quick start command">
+        <span>$</span><code>uv run dataherb catalog build</code>
+        <button type="button" data-copy="uv run dataherb catalog build" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      </div>
+    </div>
+    <div class="frame">
+      <div class="frame-bar"><i></i><i></i><i></i><span class="url">dataherb.github.io/dataherb-explorer</span></div>
+      <img src="{{ img }}catalog.png" alt="The DataHerb Explorer catalog: search, facets and dataset cards" width="1360" height="1236">
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span class="item"><strong>Reads from</strong></span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 4-6 3-11 6"/></svg>Git repositories</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>S3 and compatible stores</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>Any HTTP folder</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4zM3 12l9 4 9-4M3 17l9 4 9-4"/></svg>CSV, Parquet, JSON</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h3"/></svg>Hosts on GitHub Pages or S3</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="kicker">What you get</p>
+      <h2>Everything a data catalog needs, nothing to run</h2>
+      <p>A scheduled CI job rebuilds the site. Data is read straight from where it already lives.</p>
+    </div>
+    <div class="features">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
+        <h3>Searchable catalog</h3>
+        <p>Facets for tags, domain, owner, freshness, storage and format. Schemas, docs, snippets and a metadata quality score per dataset.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg></div>
+        <h3>Explore in the browser</h3>
+        <p>DuckDB-WASM previews, profiles and queries files with SQL. Joins, charts, statistics and shareable links.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div>
+        <h3>Live job status</h3>
+        <p>Pipelines write a small JSON file per run. The site shows what is failing, stuck or stale, without a backend.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M6 8.5v1.5a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V8.5M12 13v2.5"/></svg></div>
+        <h3>Forkable by design</h3>
+        <p>One config file and a folder of Markdown entries, reviewed through pull requests and validated in CI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="kicker">The DataHerb way</p>
+      <h2>Herbs, leaves and a flora</h2>
+      <p>DataHerb started as a "Homebrew for small data". The vocabulary and the principles are the same in v2, now for your whole organization.</p>
+    </div>
+    <div class="vocab">
+      <div class="card"><span class="term">herb</span><h3>A dataset</h3><p class="muted">Data files plus a <code>dataherb.yml</code> that describes them: owner, schema, license, freshness.</p></div>
+      <div class="card"><span class="term">leaf</span><h3>A data file</h3><p class="muted">A CSV, Parquet or JSON file inside a herb, previewed and queried right in the browser.</p></div>
+      <div class="card"><span class="term">flora</span><h3>The catalog</h3><p class="muted">All herbs together, searchable and browsable. In v2 it is the explorer you deploy.</p></div>
+    </div>
+    <div class="principles">
+      <div><h3>Metadata-driven</h3><p>Every dataset is described by its metadata companion, and the listing itself is just metadata in a folder.</p></div>
+      <div><h3>Community-driven</h3><p>Datasets are added, revised and removed through pull requests, validated and linted in CI.</p></div>
+      <div><h3>Never takes your data</h3><p>Data stays where its owners keep it. DataHerb only points at it and reads it in the browser.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Take the tour</p>
+      <h2>See it before you fork it</h2>
+      <p>These are screens from the <a href="{{ site.explorer_url }}">public demo</a>, which lists the DataHerb datasets.</p>
+    </div>
+    <div class="tour" data-tour>
+      <div class="tour-tabs" role="tablist" aria-label="Explorer screens">
+        <button class="tour-tab" role="tab" id="tab-catalog" aria-controls="panel-catalog" aria-selected="true"><strong>Catalog</strong><span>Search and filter every dataset in your organization.</span></button>
+        <button class="tour-tab" role="tab" id="tab-dataset" aria-controls="panel-dataset" aria-selected="false" tabindex="-1"><strong>Dataset page</strong><span>Preview, schema, owner, freshness and your own Markdown notes.</span></button>
+        <button class="tour-tab" role="tab" id="tab-explore" aria-controls="panel-explore" aria-selected="false" tabindex="-1"><strong>SQL explorer</strong><span>Query and chart across datasets with DuckDB-WASM.</span></button>
+        <button class="tour-tab" role="tab" id="tab-status" aria-controls="panel-status" aria-selected="false" tabindex="-1"><strong>Job status</strong><span>Health of every pipeline that feeds the catalog.</span></button>
+      </div>
+      <div>
+        {%- assign shots = "catalog,dataset,explore,status" | split: "," -%}
+        {%- assign urls = "#/,#/d/demo-daily-sales,#/explore,#/status" | split: "," -%}
+        {%- for s in shots -%}
+        <div class="tour-panel frame" role="tabpanel" id="panel-{{ s }}" aria-labelledby="tab-{{ s }}"{% unless forloop.first %} hidden{% endunless %}>
+          <div class="frame-bar"><i></i><i></i><i></i><span class="url">dataherb-explorer/{{ urls[forloop.index0] }}</span></div>
+          <img src="{{ img }}{{ s }}.png" alt="DataHerb Explorer {{ s }} screen" loading="lazy">
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="kicker">How it works</p>
+      <h2>From data files to a catalog in three steps</h2>
+      <p>Datasets stay where their owners keep them. The catalog only points at them.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num"></span>
+        <h3>Describe the data</h3>
+        <p><code>dataherb create</code> drafts a <code>dataherb.yml</code> next to your files, with columns and types inferred.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># in the dataset folder</span>
+dataherb create <span class="nb">.</span> <span class="nt">--format</span> yaml</code></pre></div></div>
+      </div>
+      <div class="step">
+        <span class="num"></span>
+        <h3>List it in the catalog</h3>
+        <p>Add one Markdown file per dataset. Front matter points at the data; the body is shown on its page.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># catalog/orders-daily.md</span>
+<span class="nn">---</span>
+<span class="na">id</span><span class="pi">:</span> <span class="s">orders-daily</span>
+<span class="na">repo</span><span class="pi">:</span> <span class="s">my-org/orders-daily</span>
+<span class="nn">---</span></code></pre></div></div>
+      </div>
+      <div class="step">
+        <span class="num"></span>
+        <h3>Build and publish</h3>
+        <p>GitHub Actions runs the build on every push and every hour, then deploys to Pages or S3.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataherb catalog validate
+dataherb catalog build  <span class="c"># writes dist/</span></code></pre></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="kicker">Job status</p>
+        <h3>Know which pipelines you can trust</h3>
+        <p>Airflow DAGs, GitHub Actions and cron jobs write a <code>latest.json</code> per job following the open <a href="{{ "/job-status/" | relative_url }}">dataherb.status/v1</a> spec. The browser reads those files directly, so health is live between builds.</p>
+        <div class="pills">
+          <span class="pill healthy">healthy</span><span class="pill running">running</span><span class="pill degraded">degraded</span><span class="pill stale">stale</span><span class="pill stuck">stuck</span><span class="pill failing">failing</span>
+        </div>
+        <a class="btn btn-ghost" href="{{ "/job-status/" | relative_url }}">Read the spec</a>
+      </div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># at the end of any job</span>
+dataherb status emit <span class="se">\</span>
+  <span class="nt">--target</span> s3://bucket/_dataherb/status/ <span class="se">\</span>
+  <span class="nt">--job-id</span> sales-export <span class="se">\</span>
+  <span class="nt">--status</span> success <span class="nt">--expected-interval</span> P1D
+
+<span class="c"># in CI or a cron alert</span>
+dataherb status check   <span class="c"># exit 1 if failing, stuck or stale</span></code></pre></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="split reverse">
+      <div>
+        <p class="kicker">Built for internal data</p>
+        <h3>Private by default, cheap to host</h3>
+        <ul class="checks">
+          <li>Serve the site behind your network, or from a bucket limited to your VPN.</li>
+          <li>Private git repos are read at build time with a token; S3 URLs can be presigned.</li>
+          <li>Queries run in the reader's browser. Nothing is sent to a server.</li>
+          <li>Self-host DuckDB-WASM when browsers can't reach public CDNs.</li>
+          <li>Plain vanilla JS with no build step, so a fork can restyle it with a text editor.</li>
+        </ul>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Piece</th><th>Where it lives</th></tr></thead>
+          <tbody>
+            <tr><td>Config</td><td><code>dataherb.config.yml</code></td></tr>
+            <tr><td>Catalog</td><td><code>catalog/&lt;id&gt;.md</code></td></tr>
+            <tr><td>Metadata</td><td><code>dataherb.yml</code> next to the data</td></tr>
+            <tr><td>Data</td><td>git, S3, HTTP or the site itself</td></tr>
+            <tr><td>Job status</td><td><code>&lt;prefix&gt;/&lt;job&gt;/latest.json</code></td></tr>
+            <tr><td>Build</td><td>GitHub Actions, hourly and on change</td></tr>
+            <tr><td>Hosting</td><td>GitHub Pages or S3/CloudFront</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Run your own catalog this afternoon</h2>
+      <p>Fork the explorer, edit one YAML file, enable GitHub Pages. That's the whole deployment.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{ "/get-started/" | relative_url }}">Get started</a>
+        <a class="btn btn-ghost" href="{{ site.explorer_repo }}">{% include v2/icon-github.svg %} Fork on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>

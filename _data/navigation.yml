@@ -1,9 +1,12 @@
 # Site navigation links
 main:
 
-- title: Flora
-  url: /flora/
-  excerpt: "Find datasets in flora"
+- title: Explorer
+  url: https://dataherb.github.io/dataherb-explorer/
+  excerpt: "The DataHerb Explorer demo"
+- title: "Get Started"
+  url: /get-started/
+  excerpt: "Run your own DataHerb Explorer"
 - title: "Add Data"
   url: /add/
   excerpt: "Add your datasets"
@@ -14,9 +17,15 @@ main:
   url: /ecosystem/
   excerpt: "DataHerb Ecosystem"
   subnav:
+    - title: "DataHerb Explorer"
+      url: https://github.com/DataHerb/dataherb-explorer
+      excerpt: "The static catalog and explorer"
     - title: "Python Package"
       url: /ecosystem/dataherb-python
-      excerpt: "Python Package for metadata generation and dataset loading"
+      excerpt: "The dataherb CLI: metadata, catalog builds and job status"
+    - title: "Flora (v1)"
+      url: /flora/
+      excerpt: "The original dataset index"
 - title: "Community"
   url: /community/
   excerpt: "The DataHerb Community"

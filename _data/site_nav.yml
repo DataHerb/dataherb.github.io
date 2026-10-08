@@ -1,0 +1,17 @@
+# Header navigation for the v2 layouts (legacy v1 pages use navigation.yml).
+main:
+  - title: Docs
+    url: /get-started/
+    section: docs
+  - title: Add data
+    url: /add/
+    section: docs
+  - title: Job status
+    url: /job-status/
+    section: docs
+  - title: Flora
+    url: /flora/
+  - title: Articles
+    url: /articles/
+  - title: About
+    url: /about/

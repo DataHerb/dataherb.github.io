@@ -1,0 +1,4 @@
+# Flora (v1) repositories that are also in the DataHerb Explorer catalog: repository -> explorer dataset id.
+DataHerb/dataset-covid-19: covid-19-csse
+datumorphism/dataset-eu-nuts: eu-nuts
+DataHerb/nuforc-ufo-records: nuforc-ufo-records

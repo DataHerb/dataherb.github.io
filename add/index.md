@@ -1,39 +1,62 @@
 ---
-layout: page
-title: List Your Dataset on DataHerb
+layout: doc
+title: Add a dataset
+description: Describe your data, put it where the catalog can read it, and list it with one Markdown file.
 permalink: /add/
-exclude: true
-comments: true
+next: {url: /job-status/, title: Job status}
 ---
 
-Adding your dataset is free and easy. Simply link your datasets with DataHerb and your dataset will be indexed.
+A dataset is a folder of data files plus a metadata file (`dataherb.yml`) next to them. The folder can be a git repository, an S3 prefix, a folder on a web server, or a folder in the explorer repository. Listing it in a catalog takes three steps.
 
-> Datasets that can be used to enhance machine learning datasets are the priorities at the moment. These datasets can be very helpful to the open data community as well as all data scientists/engineers.
+## 1. Describe the data
 
-## List Your Dataset on DataHerb
+In the folder that holds the files:
 
-It only takes **two steps**:
+```bash
+# [infer] adds duckdb for exact types and row counts of CSV, Parquet and JSON
+uv tool install "dataherb[infer] @ git+https://github.com/DataHerb/dataherb-python"
+dataherb create . --id orders-daily --name "Daily orders" --format yaml --no-input
+```
 
-1. [Create your GitHub repository to host your data.]({{site.base_url}}/add/create-repo)
-2. [Add your GitHub repository name to DataHerb.]({{site.base_url}}/add/link-repo-with-dataherb)
+This writes `dataherb.yml` with one resource per data file, with columns and their types. Fill in the description, owner, tags, license and update frequency. The metadata follows [Frictionless Data Package](https://specs.frictionlessdata.io/data-package/), so v1 `dataherb.json` files and `.dataherb/metadata.yml` folders keep working.
 
-Everything else will be done automatically by GitHub Actions.
+Prefer Parquet for anything over a few MB: the explorer reads only the columns and row groups a query needs.
 
-## What will happen
+## 2. Put it where the catalog can read it
 
-After listing your dataset on DataHerb:
+- **Git repository**: commit `dataherb.yml` at the repository root.
+- **S3**: upload the folder, e.g. `aws s3 sync . s3://my-company-datalake/datasets/orders-daily/`.
+- **The explorer repository**: put it under the `local` store's folder.
 
-1. A page will be generated;
-   <figure>
-      <div>
-         <img src="{{site.base_url}}/assets/videos/dataherb-ufo-page.gif" type="video/gif" />
-      </div>
-   </figure>
+## 3. List it in the catalog
 
-2. One could use the dataset easily. For example, one could copy & paste the python code to load the data in python. The following is an example to use the dataset in google spreadsheet.
+Add one Markdown file to `catalog/` and open a pull request. The fields go in the YAML front matter; the body is free Markdown shown on the dataset page (caveats, how to join it, who uses it).
 
-   <figure>
-      <div>
-         <img src="{{site.base_url}}/assets/videos/dataherb-european-countries-spreadsheet.gif" type="video/gif" />
-      </div>
-   </figure>
+```markdown
+---
+id: orders-daily
+store: datalake            # git: use `repo: my-org/orders-daily`
+prefix: datasets/orders-daily/
+---
+
+## Caveats
+
+Refunds show up one day after the order.
+```
+
+For git repositories, `dataherb catalog add` writes these files for you:
+
+```bash
+dataherb catalog add my-org/orders-daily
+# every repo of an org whose name starts with "dataset"
+dataherb catalog add --org my-org --match dataset
+```
+
+CI runs `dataherb catalog validate` and `dataherb catalog lint` on the pull request, and the site rebuilds after merge. With `catalog.discover` configured for an S3 prefix, step 3 is unnecessary.
+
+The full guide is [docs/adding-datasets.md]({{ site.explorer_repo }}/blob/main/docs/adding-datasets.md).
+
+## Listing a dataset on the public DataHerb catalog
+
+The [public DataHerb Explorer]({{ site.explorer_url }}) lists the DataHerb `dataset-*` repositories. To add an open dataset, open a pull request on [DataHerb/dataherb-explorer]({{ site.explorer_repo }}) with a new `catalog/<id>.md`.
+

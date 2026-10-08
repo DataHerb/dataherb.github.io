@@ -1,24 +1,18 @@
 ---
-layout: default
+layout: base
+title: Page not found
+permalink: /404.html
 ---
-
-<!-- <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style> -->
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<section class="section">
+  <div class="wrap center">
+    <img class="illus" src="{{ "/assets/images/undraw_detailed_examination_joef.svg" | relative_url }}" alt="">
+    <p class="kicker">404</p>
+    <h2>This page isn't in the catalog</h2>
+    <p class="muted">It may have moved when the site was redesigned for DataHerb v2.</p>
+    <p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px">
+      <a class="btn btn-primary" href="{{ "/" | relative_url }}">Home</a>
+      <a class="btn btn-ghost" href="{{ "/get-started/" | relative_url }}">Docs</a>
+      <a class="btn btn-ghost" href="{{ site.explorer_url }}">Live demo</a>
+    </p>
+  </div>
+</section>

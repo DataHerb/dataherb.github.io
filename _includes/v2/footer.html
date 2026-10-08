@@ -1,0 +1,42 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="{{ "/" | relative_url }}">{% include v2/logo.svg %}DataHerb</a>
+        <p>An open-source, static data catalog and explorer. Fork it, point it at your data, publish it anywhere static files can live.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="{{ site.explorer_url }}">Live demo</a></li>
+          <li><a href="{{ "/get-started/" | relative_url }}">Get started</a></li>
+          <li><a href="{{ "/add/" | relative_url }}">Add a dataset</a></li>
+          <li><a href="{{ "/job-status/" | relative_url }}">Job status</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Code</h4>
+        <ul>
+          <li><a href="{{ site.explorer_repo }}">dataherb-explorer</a></li>
+          <li><a href="https://github.com/DataHerb/dataherb-python">dataherb-python</a></li>
+          <li><a href="{{ "/ecosystem/dataherb-python" | relative_url }}">CLI reference</a></li>
+          <li><a href="https://github.com/DataHerb">GitHub organization</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="{{ "/about/" | relative_url }}">About</a></li>
+          <li><a href="{{ "/articles/" | relative_url }}">Articles</a></li>
+          <li><a href="{{ "/community/" | relative_url }}">Community</a></li>
+          <li><a href="{{ "/flora/" | relative_url }}">Flora (v1 archive)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MIT licensed. Built with Jekyll on GitHub Pages.</span>
+      <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+    </div>
+  </div>
+</footer>
+<script src="{{ "/assets/v2/site.js" | relative_url }}" defer></script>

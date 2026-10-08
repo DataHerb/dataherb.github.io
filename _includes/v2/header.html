@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ "/" | relative_url }}">{% include v2/logo.svg %}DataHerb <span class="ver">v2</span></a>
+    <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span class="sr-only">Menu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      {%- for item in site.data.site_nav.main -%}
+      {%- assign href = item.url -%}
+      {%- unless item.url contains '://' -%}{%- assign href = item.url | relative_url -%}{%- endunless -%}
+      <a href="{{ href }}"{% if page.url == item.url %} class="active"{% endif %}>{{ item.title }}</a>
+      {%- endfor -%}
+      <a class="icon-link" href="https://github.com/DataHerb" aria-label="DataHerb on GitHub">{% include v2/icon-github.svg %}</a>
+      <a class="btn btn-primary btn-sm" href="{{ site.explorer_url }}">Open the demo</a>
+    </nav>
+  </div>
+</header>

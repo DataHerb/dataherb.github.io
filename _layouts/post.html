@@ -1,42 +1,14 @@
 ---
-layout: default
+layout: base
 ---
-<article itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header has-text-centered">
-    <h1 class="is-size-1" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}
-      {% if page.category %}
-       • <span style="font-style: regular;">{</span>{% for cate in page.category %}
-       <span style="padding-right: 0.2em;padding-left: 0.2em;"><a href="{{ site.url }}{{ site.baseurl }}/categories/#{{ cate | slugify }}">⸢{{ cate }}⸥</a></span>
-       {% endfor %}
-       }
-      {% endif %}
-      {% if page.tags %}
-       • <span style="font-style: regular;">[</span>{% for tag in page.tags %}
-       <span style="padding-right: 0.2em;padding-left: 0.2em;"><a href="{{ site.url }}{{ site.baseurl }}/tags/#{{ tag | slugify }}">#{{ tag }}#</a></span>
-       {% endfor %}
-       ]
-      {% endif %}
-      <a href="{{ site.github.repository_url }}/tree/master/{{ page.relative_path }}" style="opacity: 0.1;"><i class="fas fa-code"></i> </a>
-    </p>
+<article class="wrap article">
+  <nav class="crumbs"><a href="{{ "/articles/" | relative_url }}">Articles</a> <span>/</span> {{ page.date | date: "%b %-d, %Y" }}</nav>
+  <header class="article-head">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} &middot; {{ page.author }}{% endif %}{% if page.tag %} &middot; {{ page.tag | join: ", " }}{% endif %}</p>
   </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
+  <div class="prose" style="max-width:720px">{{ content }}</div>
+  {%- if page.comments == true -%}
+  <div class="comments" id="comments" style="max-width:720px"><script src="https://utteranc.es/client.js" repo="DataHerb/comments" issue-term="pathname" theme="preferred-color-scheme" crossorigin="anonymous" async></script></div>
   {%- endif -%}
-
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
-{% include utterances-comments.html %}
